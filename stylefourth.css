@@ -268,7 +268,7 @@ h1 {
 }
 
 .staticRotate {
-  animation: staticRotate 20s linear infinite;
+  -webkit-animation: staticRotate 20s linear infinite;
 }
 
 @keyframes staticRotate {
