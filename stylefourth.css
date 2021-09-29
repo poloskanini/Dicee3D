@@ -248,7 +248,6 @@ h1 {
   transform-style: preserve-3d;
 	filter: blur(30px); 
 	margin: auto;
-  z-index: -10;
 }
 
 .staticShadow {
