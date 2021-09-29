@@ -99,6 +99,8 @@ h1 {
   background-size: cover;
   background-position: center;
   transform: rotateX(90deg) rotateZ(20deg) translateZ(50px);
+  z-index: 10;;
+
 }
 
 .bottom {
@@ -113,6 +115,8 @@ h1 {
   background-size: cover;
   background-position: center center;
   transform: rotateY(160deg) translateZ(50px);
+  z-index: 10;;
+
 }
 
 .left {
@@ -120,6 +124,8 @@ h1 {
   background-size: cover;
   background-position: center center;
   transform: rotateY(-110deg) translateZ(50px);
+  z-index: 10;;
+
 }
 
 .front {
@@ -127,6 +133,8 @@ h1 {
   background-size: cover;
   background-position: center center;
   transform: rotateY(-20deg) translateZ(50px);
+  z-index: 10;;
+
 }
 
 .back {
@@ -134,6 +142,8 @@ h1 {
   background-size: cover;
   background-position: center center;
   transform: rotateX(180deg) rotateY(110deg) translateZ(50px);
+  z-index: 10;;
+
 }
 
 .holdScore {
