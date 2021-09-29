@@ -181,18 +181,19 @@ h1 {
   animation: diceRotateRight 2s;
 }
 
-/* @keyframes diceRotateLeft {
+/* Animation for DESKTOP (doesn't work on mobiles) */
+@keyframes diceRotateLeft {
   0% {
     transform: translateX(-1000px) translate3d(15px, 200px, 2000px);  
   }     
   100% {  
-    transform: translateX(0px) translateY(0px) rotateX(3600deg) rotateY(360deg);    
+    transform: translateX(0px) translateY(0px) rotateX(3600deg) rotateY(360deg) translate3d(0, 0, 0);    
     ;     
   }  
-} */
+}
 
-/* Essai pour bug sur mobile */
-@keyframes diceRotateLeft {
+/* Animation for MOBILE */
+/* @keyframes diceRotateLeft {
   0% {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)
   }     
@@ -200,7 +201,7 @@ h1 {
     transform: rotateX(0deg) rotateY(1800deg) rotateZ(-360deg);    
     ;     
   }  
-}
+} */
 
 @keyframes diceRotateRight {
   0% {
