@@ -248,17 +248,16 @@ h1 {
 /* STATIC ROTATION */
 
 .shadow {
-	width: 70px;
-	height: 70px;
+	width: 50px;
+	height: 50px;
   border-radius: 30%;
 	background: rgba(54, 54, 54, .6);;
 	position: absolute;
   perspective: 8000px;
   top: 10%;
-  left: 80px;
+  left: 50px;
   transform: translate3d(0, 0, -800px);
-  transform: rotateX(-160deg) rotateZ(-160deg);
-	filter: blur(40px); 
+	filter: blur(30px); 
 	margin: auto;
   z-index: -10;
 }
