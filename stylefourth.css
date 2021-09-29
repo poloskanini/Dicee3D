@@ -215,7 +215,7 @@ h1 {
     -webkit-transform: translate3d(-1000px, 200px, 2000px);  
   }     
   100% {  
-    -webkit-transform: translate3d(0,0,0) translateZ(300deg);    
+    -webkit-transform: translate3d(0,0,0);    
     ;     
   }  
 }
