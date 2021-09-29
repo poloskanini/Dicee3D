@@ -192,7 +192,7 @@ h1 {
 /* Animation BIS for DESKTOP (essai) */
 @keyframes diceRotateLeft {
   0% {
-    -webkit-transform: translate3d(-1000px, 200px, 2000px);  
+    -webkit-transform: translate3d(-1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);  
   }     
   100% {  
     -webkit-transform: translate3d(0,0,0) rotateX(3600deg) rotateY(360deg);    
