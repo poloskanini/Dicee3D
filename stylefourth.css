@@ -29,19 +29,22 @@ h1 {
 .players {
   position: relative;
   width: 100%;
-  height: auto;
+  min-height: 80vh;
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .player {
   width: 100%;
   top: 100px;
   padding: 1.5rem;
-  display: flex;
-  justify-content: center;
   border: 1px solid black;
 }
 
-.player p {
+.player-title {
   font-size: clamp(1.8rem, 4vw, 4rem);
   font-weight: bold;
   color: #4ECCA3;
@@ -294,10 +297,12 @@ footer {
 
   .players {
     display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
   }
 
-  #player-1,
-  #player-2 {
+  .player {
     height: 70vh;
   }
 }
