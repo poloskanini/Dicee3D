@@ -242,12 +242,12 @@ h1 {
 	height: 100px;
   border-radius: 30%;
 	background: rgba(54, 54, 54, 0.6);;
-	position: relative;
-  top: 0;
-  left: 50px;
+	position: absolute;
+  top: 10%;
+  left: 80px;
   transform-style: preserve-3d;
   transform: translate3d(0,0,0);
-	z-index: 1;
+	z-index: 0;
 	filter: blur(30px); 
 	margin: auto;
 }
