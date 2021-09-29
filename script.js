@@ -55,7 +55,6 @@ function rollDice() {
   shadow.classList.remove("staticRotate");
   dice.classList.toggle('animationDiceLeft');
   shadow.classList.toggle('animationShadowLeft');
-  shadow.style.zIndex = "-20"
   
   setTimeout(function() {
    dice.classList.remove('animationDiceLeft')
