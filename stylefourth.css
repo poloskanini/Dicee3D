@@ -179,7 +179,7 @@ h1 {
 }
 
 /* Animation for DESKTOP (doesn't work on mobiles) */
-@keyframes diceRotateLeft {
+/* @keyframes diceRotateLeft {
   0% {
     -webkit-transform: translateX(-1000px) translate3d(15px, 200px, 2000px);  
   }     
@@ -187,9 +187,9 @@ h1 {
     -webkit-transform: translateX(0px) translateY(0px) rotateX(3600deg) rotateY(360deg) translate3d(0,0,0);    
     ;     
   }  
-}
+} */
 
-/* Animation BIS for DESKTOP (essai) */
+/* Animation (WORKS for DESKTOP + MOBILE !) */
 @keyframes diceRotateLeft {
   0% {
     -webkit-transform: translate3d(-1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);  
@@ -200,7 +200,19 @@ h1 {
   }  
 }
 
-/* Animation for MOBILE */
+@keyframes diceRotateRight {
+  0% {
+    -webkit-transform: translate3d(1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);  
+  }     
+  100% {  
+    -webkit-transform: translate3d(0,0,0) rotateX(3600deg) rotateY(360deg);    
+    ;     
+  }  
+}
+
+
+/* Animation for MOBILE ?? (simple rotation, no Z axis) */
+
 /* @keyframes diceRotateLeft {
   0% {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)
@@ -211,15 +223,6 @@ h1 {
   }  
 } */
 
-@keyframes diceRotateRight {
-  0% {
-    transform: translateX(1000px) translate3d(15px, 200px, 2000px);  
-  }     
-  100% {  
-    transform: translateX(0px) translateY(0px) rotateX(3600deg) rotateY(360deg);    
-    ;     
-  }  
-}
 
 /* __________________________________________ */
 /* STATIC ROTATION */
