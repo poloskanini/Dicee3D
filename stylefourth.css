@@ -255,9 +255,9 @@ h1 {
 	position: absolute;
   perspective: 8000px;
   top: 10%;
-  left: 50px;
+  left: 80px;
   -webkit-transform: translate3d(0,0,0);
-  transform: rotateX(-160deg) rotateZ(-160deg) translateZ(300deg);
+  transform: rotateX(-160deg) rotateZ(-160deg) translateZ(100px);
 	filter: blur(30px); 
 	margin: auto;
   z-index: -10;
