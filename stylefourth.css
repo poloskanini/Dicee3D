@@ -242,9 +242,7 @@ h1 {
   border-radius: 30%;
 	background: rgba(54, 54, 54, 0.6);;
 	position: absolute;
-  transform: translateZ(0px);
-  top: 10%;
-  left: 50px;
+  perspective: -100px;
 	filter: blur(30px); 
 	margin: auto;
 }
