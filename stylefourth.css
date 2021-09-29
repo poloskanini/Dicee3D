@@ -247,6 +247,7 @@ h1 {
   transform: translate3d(0,0,0) translateZ(0deg);
 	filter: blur(30px); 
 	margin: auto;
+  z-index: -1;
 }
 
 .staticShadow {
