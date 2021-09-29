@@ -12,29 +12,42 @@ body {
   font-size: 1rem;
 }
 
+/**** ____HEADER____ ****/
+header {
+  font-family: 'Lobster';
+}
+
 h1 {
   margin: 1rem;
-  font-family: 'Lobster';
   text-shadow: 2px 0 #232931;
   font-size: clamp(32px, 12vw, 7rem);
   color: #f57b72;
   text-align: center;
 }
 
+/* Navbar */
+.navbar {
+  width: 50%;
+  margin: auto;
+  font-size: clamp(1.1rem, 1.3vw, 2.2rem);
+  justify-content: space-evenly;
+}
+
+/**** ____CONTAINER____ ****/
 .container {
   font-family: 'Indie Flower';
   /* background: lightblue; */
 }
 
+/* Players */
 .players {
   position: relative;
   width: 100%;
-  min-height: 80vh;
+  height: auto;
   margin: 3rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
 }
 
 .player {
@@ -42,14 +55,16 @@ h1 {
   top: 100px;
   padding: 0 1.5rem;
   border: 1px solid black;
+  min-height: 30vh;
 }
 
 .player-title {
-  font-size: clamp(1.8rem, 4vw, 4rem);
+  font-size: clamp(2rem, 4vw, 4rem);
   font-weight: bold;
   color: #4ECCA3;
   font-family: 'Indie Flower', sans-serif;
   text-shadow: 1px 0 #232931;
+  text-align: center;
 }
 
 #player-1 {
@@ -57,10 +72,63 @@ h1 {
   margin-bottom: 9rem;
 }
 
-#player-2 {
-  /* background: rgb(200, 255, 0); */
+/**** PLAYERS INNER ****/
+.playerInner {
 }
 
+/* RoundWrap */
+
+
+.roundScore,
+.totalScore {
+  font-size: clamp(3rem, 5vw, 8rem);
+  font-family: 'Lobster Two';
+  font-weight: bold;
+  text-shadow: 1px 0 #232931;
+  margin: 2rem 0;
+}
+
+.roundScore {
+  color: #4ECCA3;
+}
+
+.totalScore {
+  color: #E78177;
+}
+
+/* HoldScore */
+.holdScore {
+  background: #F9D2CF;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .7);
+  transition: all .1s ease-in-out;
+  z-index: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.holdScore:hover {
+  background: #f7bbb7;
+}
+
+.holdScore:active {
+  box-shadow: 0 1px rgba(0, 0, 0, .3);
+}
+
+.totalScoreText {
+  color: #E78177;
+  font-size: clamp(2rem, 2vw, 3rem);
+  font-family: 'Lobster Two';
+  font-weight: bold;
+  text-shadow: 1px 0 #232931;
+}
+
+
+
+/* Wrapper (Dice + Shadow) */
 .wrapper {
   width: 100px;
   height: 100px;
@@ -132,30 +200,6 @@ h1 {
   background-size: cover;
   background-position: center center;
   transform: rotateX(180deg) rotateY(110deg) translateZ(50px);
-}
-
-.holdScore {
-  position: absolute;
-  background: #F9D2CF;
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-weight: bold;
-  padding: 5px 15px;
-  min-width: 150px;
-  border-radius: 5px;
-  top: 62%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, .7);
-  transition: all .1s ease-in-out;
-  z-index: 0;
-}
-
-.holdScore:hover {
-  background: #f7bbb7;
-}
-
-.holdScore:active {
-  box-shadow: 0 1px rgba(0, 0, 0, .3);
 }
 
 /* __________ ANIMATING ROTATION ______________ */
@@ -277,6 +321,7 @@ h1 {
   }
 }
 
+
 footer {
   color: #4ECCA3;
   position: relative;
@@ -299,7 +344,6 @@ footer {
     display: flex;
     flex-direction: row;
     position: relative;
-    width: 100%;
   }
 
   .player {
