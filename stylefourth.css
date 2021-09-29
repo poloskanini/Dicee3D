@@ -257,7 +257,7 @@ h1 {
   top: 10%;
   left: 80px;
   -webkit-transform: translate3d(0,0,0);
-  transform: rotateX(-160deg) rotateZ(-160deg) translateZ(100px);
+  transform: rotateX(-160deg) rotateZ(-160deg);
 	filter: blur(30px); 
 	margin: auto;
   z-index: -10;
