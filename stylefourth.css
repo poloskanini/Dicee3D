@@ -251,9 +251,9 @@ h1 {
   z-index: -10;
 }
 
-.staticShadow {
+/* .staticShadow {
 	animation: staticRotate 20s linear infinite; 
-}
+} */
 
 .staticRotate {
   animation: staticRotate 20s linear infinite;
