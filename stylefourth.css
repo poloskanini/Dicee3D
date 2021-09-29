@@ -23,7 +23,6 @@ h1 {
 
 .container {
   font-family: 'Indie Flower';
-  min-height: 90vh;
   display: flex;
   justify-content: center;
   /* background: lightblue; */
@@ -71,9 +70,10 @@ h1 {
   cursor: pointer;
   position: absolute;
   left: 50%;
-  top: 100px;
+  top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+
 }
 
 .dice {
