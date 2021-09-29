@@ -244,7 +244,7 @@ h1 {
 	position: absolute;
   top: 30px;
   left: 100px;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0) translateZ(0deg);
 	filter: blur(30px); 
 	margin: auto;
 }
