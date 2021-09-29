@@ -237,7 +237,6 @@ h1 {
   top: 10%;
   left: 80px;
   transform-style: preserve-3d;
-  transform-origin: 100px 100px 0;
   transform: translate3d(0,0,0);
 	z-index: 1;
 	filter: blur(30px); 
