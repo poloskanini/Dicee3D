@@ -215,7 +215,7 @@ h1 {
     -webkit-transform: translate3d(-1000px, 200px, 2000px);  
   }     
   100% {  
-    -webkit-transform: translate3d(0,0,0);    
+    -webkit-transform: translate3d(0,0,-800px);    
     ;     
   }  
 }
@@ -256,7 +256,8 @@ h1 {
   perspective: 8000px;
   top: 10%;
   left: 50px;
-  transform: rotateX(-160deg) rotateZ(-160deg) translateZ(300deg);
+  transform: translate3d(0, 0, -800px);
+  transform: rotateX(-160deg) rotateZ(-160deg);
 	filter: blur(30px); 
 	margin: auto;
   z-index: -10;
