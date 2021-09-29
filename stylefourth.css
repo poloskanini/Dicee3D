@@ -163,7 +163,7 @@ h1 {
 /* __________ ANIMATING ROTATION ______________ */
 
 .animationShadowLeft {
-	animation: shadowRotateLeft 2s; 
+	animation: shadowRotateLeft 2.2s; 
 }
 
 .animationShadowRight {
