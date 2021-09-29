@@ -163,7 +163,7 @@ h1 {
 /* __________ ANIMATING ROTATION ______________ */
 
 .animationShadowLeft {
-	animation: diceRotateLeft 2.2s; 
+	animation: shadowRotateLeft 2.2s; 
 }
 
 .animationShadowRight {
@@ -212,7 +212,7 @@ h1 {
 
 @keyframes shadowRotateLeft {
   0% {
-    -webkit-transform: translate3d(-1000px, 1000px, 4000px);  
+    -webkit-transform: translate3d(-1000px, 200px, 2000px);  
   }     
   100% {  
     -webkit-transform: translate3d(0,0,0);    
@@ -256,7 +256,7 @@ h1 {
   perspective: 8000px;
   top: 10%;
   left: 50px;
-  /* transform: translate3d(0,0,0) translateZ(0deg); */
+  -webkit-transform: translate3d(0,0,0);
   transform: rotateX(-160deg) rotateZ(-160deg) translateZ(300deg);
 	filter: blur(30px); 
 	margin: auto;
