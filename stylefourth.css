@@ -73,7 +73,7 @@ h1 {
   left: 50%;
   top: 52%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 10;
 }
 
 .dice {
@@ -85,7 +85,7 @@ h1 {
   transform: translateY(0px);
   -webkit-transform: translate3d(0,0,0);
   cursor: pointer;
-  z-index: 1;
+  z-index: 10;
 }
 
 .face {
@@ -147,9 +147,9 @@ h1 {
   top: 62%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .7);
   transition: all .1s ease-in-out;
+  z-index: 5;
 }
 
 .holdScore:hover {
@@ -237,7 +237,7 @@ h1 {
   top: 10%;
   left: 100px;
   transform-style: preserve-3d;
-	z-index: 0;
+	z-index: -1;
 	filter: blur(30px); 
 	margin: auto;
 }
