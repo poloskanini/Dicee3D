@@ -163,7 +163,7 @@ h1 {
 /* __________ ANIMATING ROTATION ______________ */
 
 .animationShadowLeft {
-	animation: diceRotateLeft 2s backwards; 
+	animation: diceRotateLeft 2s; 
 }
 
 .animationShadowRight {
@@ -235,7 +235,7 @@ h1 {
 	background: rgba(54, 54, 54, 0.6);;
 	position: absolute;
   top: 10%;
-  left: 30px;
+  left: 80px;
   transform-style: preserve-3d;
   transform-origin: 100px 100px 0;
   transform: translate3d(0,0,0);
