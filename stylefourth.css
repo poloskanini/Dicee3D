@@ -82,7 +82,7 @@ h1 {
   position: relative;
   transform-style: preserve-3d;
   transform-origin: 100px 100px 0;
-  transform: translateY(0px);
+  transform: translateY(0px) translate3d(0,0,0);
   cursor: pointer;
   z-index: 1;
 }
@@ -184,10 +184,10 @@ h1 {
 /* Animation for DESKTOP (doesn't work on mobiles) */
 @keyframes diceRotateLeft {
   0% {
-    transform: translateX(-1000px) translate3d(15px, 200px, 2000px);  
+    -webkit-transform: translateX(-1000px) translate3d(15px, 200px, 2000px);  
   }     
   100% {  
-    transform: translateX(0px) translateY(0px) rotateX(3600deg) rotateY(360deg) translate3d(0, 0, 0);    
+    -webkit-transform: translateX(0px) translateY(0px) rotateX(3600deg) rotateY(360deg) translate3d(0,0,0);    
     ;     
   }  
 }
