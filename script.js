@@ -26,7 +26,7 @@ let cpt = 0;
 // Hover DICE
 wrapper.addEventListener("mouseover", function() {
   // on met l'accent sur la cible de mouseenter
-  shadow.style.background = "rgba(30, 30, 40, 0.9)";
+  shadow.style.background = "rgba(54, 54, 54, .7)";
   shadow.style.transition = ".5s all ease";
 });
 
