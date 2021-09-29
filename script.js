@@ -24,8 +24,6 @@ let cpt = 0;
 
 // __________CSS EFFECTS________ //
 // Hover DICE
-
-
 wrapper.addEventListener("mouseover", function() {
   // on met l'accent sur la cible de mouseenter
   shadow.style.background = "rgba(30, 30, 40, 0.9)";
@@ -39,6 +37,7 @@ wrapper.addEventListener("mouseleave", function() {
 
 // Initialize the staticRotate (default behaviour)
 dice.classList.add("staticRotate");
+shadow.classList.add("staticShadow")
 
 // _____________________________ //
 
