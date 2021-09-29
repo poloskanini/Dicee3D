@@ -1,0 +1,88 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+  margin: 15% auto;
+}
+
+.dice {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: diceRotate 2s linear;  
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+
+.top {
+  background-image: url(https://picsum.photos/200);
+  background-size: cover;
+  background-position: center;
+  transform: rotateX(90deg) translateZ(100px);
+
+}
+
+.bottom {
+  background-image: url(https://picsum.photos/200);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+.right {
+  background-image: url(https://picsum.photos/200);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+  background-image: url(https://picsum.photos/200);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.front {
+  background-image: url(https://picsum.photos/200);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateX(0deg) translateZ(100px);
+}
+
+.back {
+  background-image: url(https://picsum.photos/200);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateX(-180deg) translateZ(100px);
+}
+
+@keyframes diceRotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+
+  35% {
+    transform: rotateX(50deg) rotateY(50deg) rotateZ(50deg);
+  }
+
+  50% {
+    transform: rotateX(200deg) rotateY(00deg) rotateZ(50deg);
+  }
+  100% {
+    transform: rotateX(1800deg) rotateY(1800deg) rotateZ(50deg);
+  }
+}

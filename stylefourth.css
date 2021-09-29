@@ -1,0 +1,273 @@
+/* Basic Reset */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Indie Flower';
+  font-size: 1rem;
+}
+
+h1 {
+  margin: 1rem;
+  font-family: 'Lobster';
+  text-shadow: 5px 0 #232931;
+  font-size: clamp(32px, 12vw, 7rem);
+  color: #f57b72;
+  text-align: center;
+}
+
+.container {
+  font-family: 'Indie Flower';
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  /* background: lightblue; */
+}
+
+.players {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.player {
+  width: 100%;
+  height: 30vh;
+  top: 100px;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.player p {
+  font-size: clamp(1.8rem, 4vw, 4rem);
+  font-weight: bold;
+  color: #4ECCA3;
+  font-family: 'Indie Flower', sans-serif;
+  text-shadow: 1px 0 #232931;
+}
+
+#player-1 {
+  /* background: red; */
+  margin-bottom: 11rem;
+}
+
+#player-2 {
+  /* background: rgb(200, 255, 0); */
+}
+
+.wrapper {
+  width: 100px;
+  height: 100px;
+  perspective: 4000px;
+  margin: auto;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.dice {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: 100px 100px 0;
+  transform: translateY(0px);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.top {
+  background-image: url(images/die-3.jpeg);
+  background-size: cover;
+  background-position: center;
+  transform: rotateX(90deg) rotateZ(20deg) translateZ(50px);
+}
+
+.bottom {
+  background-image: url(images/die-4.jpeg);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateX(-90deg) rotateZ(-20deg) translateZ(50px);
+}
+
+
+.right {
+  background-image: url(images/die-1.png);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateY(160deg) translateZ(50px);
+}
+
+
+.left {
+  background-image: url(images/die-2.jpeg);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateY(-110deg) translateZ(50px);
+}
+
+
+.front {
+  background-image: url(images/die-6.jpeg);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateY(-20deg) translateZ(50px);
+}
+
+
+.back {
+  background-image: url(images/die-5.jpeg);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateX(180deg) rotateY(110deg) translateZ(50px);
+}
+
+.holdScore {
+  position: absolute;
+  background: #F9D2CF;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: bold;
+  padding: 5px 15px;
+  min-width: 150px;
+  border-radius: 5px;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .7);
+  transition: all .1s ease-in-out;
+}
+
+.holdScore:hover {
+  background: #f7bbb7;
+}
+
+.holdScore:active {
+  box-shadow: 0 1px rgba(0, 0, 0, .3);
+}
+
+/* __________ ANIMATING ROTATION ______________ */
+
+.animationShadowLeft {
+	animation: diceRotateLeft 2s backwards; 
+}
+
+.animationShadowRight {
+	animation: diceRotateRight 2s backwards; 
+}
+
+.animationDiceLeft {
+  animation: diceRotateLeft 2s;
+}
+
+.animationDiceRight {
+  animation: diceRotateRight 2s;
+}
+
+@keyframes diceRotateLeft {
+  0% {
+    transform: translateX(-1000px) translate3d(15px, 200px, 2000px);  
+  }     
+  100% {  
+    transform: translateX(0px) translateY(0px) rotateX(3600deg) rotateY(360deg);    
+    ;     
+  }  
+}
+
+@keyframes diceRotateRight {
+  0% {
+    transform: translateX(1000px) translate3d(15px, 200px, 2000px);  
+  }     
+  100% {  
+    transform: translateX(0px) translateY(0px) rotateX(3600deg) rotateY(360deg);    
+    ;     
+  }  
+}
+
+/* __________________________________________ */
+/* STATIC ROTATION */
+
+.shadow {
+	display: block;
+	width: 100px;
+	height: 100px;
+  border-radius: 30%;
+	background: rgba(54, 54, 54, 0.6);;
+	position: absolute;
+  top: 10%;
+  left: 50px;
+	transform: rotateX(-160deg) rotateZ(-160deg) translateZ(300deg);
+  transform-style: preserve-3d;
+	z-index: -1;
+	filter: blur(30px); 
+	margin: auto;
+}
+
+.staticShadow {
+	animation: staticRotate 20s linear infinite; 
+}
+
+.staticRotate {
+  animation: staticRotate 20s linear infinite;
+}
+
+@keyframes staticRotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+footer {
+  color: #4ECCA3;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+/*________ MEDIAS QUERIES______ */
+
+/*******   DESKTOP  ********/
+@media screen and (min-width : 800px) {
+
+  .players {
+    display: flex;
+  }
+
+  #player-1,
+  #player-2 {
+    height: 70vh;
+  }
+
+}
+
+/*******   MOBILE LANDSCAPE  ********/
+@media screen and (min-width : 400px) and (max-height: 800px) {
+
+  .wrapper {
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+  }
+}

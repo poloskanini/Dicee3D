@@ -1,0 +1,74 @@
+.wrapper {
+  width: 200px;
+  height: 200px;
+  margin: 15% auto;
+}
+
+.dice {
+  animation: diceRotate 3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transform-style: preserve-3d;
+  transform-origin: 100px 100px 0;
+  perspective: 1000px;
+}
+
+.dice div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+}
+
+.dice .face1 {
+  background-image: url(images/dice1.png);
+  background-size: cover;
+  background-position: center center;
+  transform: translateZ(50px);
+}
+
+.dice .face2 {
+  background-image: url(images/dice2.png);
+  background-size: cover;
+  background-position: center center;
+  transform: translateZ(50px);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.dice .face3 {
+  background-image: url(images/dice3.png);
+  background-size: cover;
+  background-position: center center;
+  transform: translateZ(50px);
+  transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+}
+
+.dice .face4 {
+  background-image: url(images/dice4.png);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+}
+
+.dice .face5 {
+  background-image: url(images/dice5.png);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+}
+
+.dice .face6 {
+  background-image: url(images/dice6.png);
+  background-size: cover;
+  background-position: center center;
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+@keyframes diceRotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+
+  }
+}
