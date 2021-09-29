@@ -73,6 +73,7 @@ h1 {
   left: 50%;
   top: 52%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .dice {
@@ -84,14 +85,13 @@ h1 {
   transform: translateY(0px);
   -webkit-transform: translate3d(0,0,0);
   cursor: pointer;
-  z-index: 100;
+  z-index: 1;
 }
 
 .face {
   position: absolute;
   width: 100px;
   height: 100px;
-  z-index: 10;;
 }
 
 .top {
@@ -99,8 +99,6 @@ h1 {
   background-size: cover;
   background-position: center;
   transform: rotateX(90deg) rotateZ(20deg) translateZ(50px);
-  z-index: 10;;
-
 }
 
 .bottom {
@@ -115,8 +113,6 @@ h1 {
   background-size: cover;
   background-position: center center;
   transform: rotateY(160deg) translateZ(50px);
-  z-index: 10;;
-
 }
 
 .left {
@@ -124,8 +120,6 @@ h1 {
   background-size: cover;
   background-position: center center;
   transform: rotateY(-110deg) translateZ(50px);
-  z-index: 10;;
-
 }
 
 .front {
@@ -133,8 +127,6 @@ h1 {
   background-size: cover;
   background-position: center center;
   transform: rotateY(-20deg) translateZ(50px);
-  z-index: 10;;
-
 }
 
 .back {
@@ -142,8 +134,6 @@ h1 {
   background-size: cover;
   background-position: center center;
   transform: rotateX(180deg) rotateY(110deg) translateZ(50px);
-  z-index: 10;;
-
 }
 
 .holdScore {
@@ -210,6 +200,16 @@ h1 {
   }  
 }
 
+@keyframes diceRotateRight {
+  0% {
+    -webkit-transform: translate3d(1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);  
+  }     
+  100% {  
+    -webkit-transform: translate3d(0,0,0) rotateX(3600deg) rotateY(360deg);    
+    ;     
+  }  
+}
+
 @keyframes shadowRotateLeft {
   0% {
     -webkit-transform: translate3d(-1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);  
@@ -220,7 +220,7 @@ h1 {
   }  
 }
 
-@keyframes diceRotateRight {
+@keyframes shadowRotateRight {
   0% {
     -webkit-transform: translate3d(1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);  
   }     
@@ -248,17 +248,18 @@ h1 {
 /* STATIC ROTATION */
 
 .shadow {
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
   border-radius: 30%;
 	background: rgba(54, 54, 54, 0.6);;
 	position: absolute;
-  top: 30px;
-  left: 100px;
-  transform: translate3d(0,0,0) translateZ(0deg);
+  top: 10%;
+  left: 50px;
+  /* transform: translate3d(0,0,0) translateZ(0deg); */
+  transform: rotateX(-160deg) rotateZ(-160deg) translateZ(300deg);
 	filter: blur(30px); 
 	margin: auto;
-  z-index: -1;
+  z-index: -10;
 }
 
 .staticShadow {
@@ -271,10 +272,10 @@ h1 {
 
 @keyframes staticRotate {
   0% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3d(0,0,0);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
   100% {
-    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) translate3d(0,0,0);
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
   }
 }
 

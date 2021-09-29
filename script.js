@@ -53,7 +53,7 @@ function rollDice() {
   // Si player ONE : dicerotateLeft
 
   dice.classList.remove("staticRotate");
-  shadow.classList.remove("staticRotate");
+  shadow.classList.remove("staticShadow");
   dice.classList.toggle('animationDiceLeft');
   shadow.classList.toggle('animationShadowLeft');
   
