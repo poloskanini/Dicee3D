@@ -56,7 +56,7 @@ h1 {
 
 #player-1 {
   /* background: red; */
-  margin-bottom: 11rem;
+  margin-bottom: 9rem;
 }
 
 #player-2 {
@@ -238,9 +238,8 @@ h1 {
   left: 30px;
   transform-style: preserve-3d;
   transform-origin: 100px 100px 0;
-  transform: translateY(0px);
-  -webkit-transform: translate3d(0,0,0);
-	z-index: -1;
+  transform: translate3d(0,0,0);
+	z-index: 1;
 	filter: blur(30px); 
 	margin: auto;
 }
