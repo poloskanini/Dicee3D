@@ -37,6 +37,8 @@ wrapper.addEventListener("mouseleave", function() {
 
 // Initialize the staticRotate (default behaviour)
 dice.classList.add("staticRotate");
+shadow.classList.add("staticRotate");
+
 // _____________________________ //
 
 
@@ -51,6 +53,7 @@ function rollDice() {
   // Si player ONE : dicerotateLeft
 
   dice.classList.remove("staticRotate");
+  shadow.classList.remove("staticRotate");
   dice.classList.toggle('animationDiceLeft');
   shadow.classList.toggle('animationShadowLeft');
   
