@@ -59,10 +59,10 @@ function rollDice() {
   
   setTimeout(function() {
    dice.classList.remove('animationDiceLeft')
- }, 2000);
+ }, 2200);
  setTimeout(function() {
    shadow.classList.remove('animationShadowLeft')
- }, 2000)
+ }, 2200)
 
 
  // else PLAYER TWO : dicerotateright
