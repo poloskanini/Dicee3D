@@ -244,7 +244,6 @@ h1 {
 	position: absolute;
   top: 10%;
   left: 50px;
-  transform-style: preserve-3d;
 	filter: blur(30px); 
 	margin: auto;
 }
