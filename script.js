@@ -37,7 +37,7 @@ wrapper.addEventListener("mouseleave", function() {
 
 // Initialize the staticRotate (default behaviour)
 dice.classList.add("staticRotate");
-shadow.classList.add("staticShadow")
+// shadow.classList.add("staticShadow")
 
 // _____________________________ //
 
