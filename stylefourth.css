@@ -85,7 +85,7 @@ h1 {
   transform: translateY(0px);
   -webkit-transform: translate3d(0,0,0);
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
 }
 
 .face {
@@ -149,7 +149,6 @@ h1 {
   transform: translate(-50%, -50%);
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .7);
   transition: all .1s ease-in-out;
-  z-index: 5;
 }
 
 .holdScore:hover {
@@ -247,7 +246,6 @@ h1 {
   left: 80px;
   transform-style: preserve-3d;
   transform: translate3d(0,0,0);
-	z-index: -1;
 	filter: blur(30px); 
 	margin: auto;
 }
