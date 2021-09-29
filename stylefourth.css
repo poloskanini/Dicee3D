@@ -181,12 +181,23 @@ h1 {
   animation: diceRotateRight 2s;
 }
 
-@keyframes diceRotateLeft {
+/* @keyframes diceRotateLeft {
   0% {
     transform: translateX(-1000px) translate3d(15px, 200px, 2000px);  
   }     
   100% {  
     transform: translateX(0px) translateY(0px) rotateX(3600deg) rotateY(360deg);    
+    ;     
+  }  
+} */
+
+/* Essai pour bug sur mobile */
+@keyframes diceRotateLeft {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+  }     
+  100% {  
+    transform: rotateX(0deg) rotateY(1800deg) rotateZ(-360deg);    
     ;     
   }  
 }
