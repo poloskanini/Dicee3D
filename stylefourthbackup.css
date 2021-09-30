@@ -18,7 +18,7 @@ header {
 }
 
 h1 {
-  margin: 1rem 0 0;
+  margin: 1rem;
   text-shadow: 2px 0 #232931;
   font-size: clamp(32px, 12vw, 7rem);
   color: #f57b72;
@@ -66,6 +66,7 @@ h1 {
   position: relative;
   width: 100%;
   height: auto;
+  margin: 3rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -107,8 +108,8 @@ h1 {
 
 /**** PLAYERS INNER ****/
 /* RoundWrap */
-.roundScore,
-.globalScore {
+#roundScore,
+#globalScore {
   font-size: clamp(3rem, 5vw, 8rem);
   font-family: 'Lobster Two';
   font-weight: bold;
@@ -116,11 +117,11 @@ h1 {
   margin: 2rem 0;
 }
 
-.roundScore {
+#roundScore {
   color: #4ECCA3;
 }
 
-.globalScore {
+#globalScore {
   color: #E78177;
 }
 
@@ -233,19 +234,19 @@ h1 {
 /* __________ ANIMATING ROTATION ______________ */
 
 .animationShadowLeft {
-	animation: shadowRotateLeft 1.2s; 
+	animation: shadowRotateLeft 2.2s; 
 }
 
 .animationShadowRight {
-	animation: shadowRotateRight 1.2s; 
+	animation: shadowRotateRight 2s; 
 }
 
 .animationDiceLeft {
-  animation: diceRotateLeft 1s;
+  animation: diceRotateLeft 2s;
 }
 
 .animationDiceRight {
-  animation: diceRotateRight 1s;
+  animation: diceRotateRight 2s;
 }
 
 /* Animation for DESKTOP (doesn't work on mobiles) */

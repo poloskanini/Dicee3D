@@ -1,45 +1,44 @@
-// Declarations
+// __________DOM DECLARATIONS________ //
+//DICE
 const wrapper = document.querySelector('.wrapper');
 const dice = document.querySelector('.dice');
 const shadow = document.querySelector('.shadow')
 const front = document.querySelector('.front');
 const back = document.querySelector('.back');
+// DICE Animation
 const animationDiceLeft = document.querySelector('.animationDiceLeft');
 const animationShadowLeft = document.querySelector('.animationShadowLeft');
 const animationDiceRight = document.querySelector('.animationDiceRight');
 const animationShadowRight = document.querySelector('.animationShadowRight');
 const staticRotate = document.querySelector('.staticRotate');
 const staticShadow = document.querySelector('.staticShadow');
+// PLAYER Select
+const playerUn = document.querySelector('.playerUn');
+const playerDeux = document.querySelector('.playerDeux');
+// HOLDSCORE Button
+const hold = document.querySelector('.holdScore')
+// NEW GAME
+const start = document.getElementById('newGame')
+// ROUNDSCORE
+let roundScore = 0;
 
-// Object Player
-let Player = function(id) {
-  this.id = id;
-  this.roundScore = 0; // Pointer dans le DOM vers un element a la classe roundScore (intermédiaire)
-  this.globalScore = 0; // Pointer dans le DOM vers un element a la classe globalScore (acquis)
-
-}
-
-
-let cpt = 0;
 
 // __________CSS EFFECTS________ //
 // Hover DICE
 wrapper.addEventListener("mouseover", function() {
-  // on met l'accent sur la cible de mouseenter
   shadow.style.background = "rgba(54, 54, 54, .7)";
   shadow.style.transition = ".5s all ease";
 });
-
 wrapper.addEventListener("mouseleave", function() {
-  // on met l'accent sur la cible de mouseenter
   shadow.style.background = "";
 });
 
-// Initialize the staticRotate (default behaviour)
-dice.classList.add("staticRotate");
-// shadow.classList.add("staticShadow")
-
-// _____________________________ //
+// __________FUNCTIONS________ //
+// Dice Static Rotate (default behaviour)
+function diceStaticRotate() {
+  dice.classList.add("staticRotate");
+}
+diceStaticRotate();
 
 
 // Lancement du dé par Joueur 1 (rollDiceLeft)
@@ -49,28 +48,7 @@ dice.addEventListener("click", rollDice);
 function rollDice() {
 
 
-
-  // Si player ONE : animationDiceLeft + animationShadowLeft
-  // Si player TWO : animationDiceRight + animationShadowRight
-
-
-  dice.classList.remove("staticRotate");
-  // shadow.classList.remove("staticShadow");
-  dice.classList.toggle('animationDiceLeft');
-  shadow.classList.toggle('animationShadowLeft');
-  
-  setTimeout(function() {
-   dice.classList.remove('animationDiceLeft')
- }, 2200);
- setTimeout(function() {
-   shadow.classList.remove('animationShadowLeft')
- }, 2200)
-
-
- // else PLAYER TWO : dicerotateright
-
-
- // Create 2 variables generating 2 random numbers between 1 & 6 ( the "+ 1" excludes the zero)
+ // Create randomNumber between 1 & 6 ( the "+ 1" excludes the zero)
   let randomNumber = Math.floor(Math.random() * 6) + 1;
 
   switch (randomNumber) {
@@ -100,15 +78,31 @@ function rollDice() {
       break;
   }
 
+
+
+  // Si player ONE : animationDiceLeft + animationShadowLeft
+  // Si player TWO : animationDiceRight + animationShadowRight
+
+
+  dice.classList.remove("staticRotate");
+  // shadow.classList.remove("staticShadow");
+  dice.classList.toggle('animationDiceLeft');
+  shadow.classList.toggle('animationShadowLeft');
+  
+  setTimeout(function() {
+   dice.classList.remove('animationDiceLeft')
+ }, 1500);
+ setTimeout(function() {
+   shadow.classList.remove('animationShadowLeft')
+ }, 1500)
+
+
   if (randomNumber !== 1) { // Si le score n'est pas 1, on continue :
     setTimeout(function() {
-      console.log(cpt += randomNumber) // Incrémente le compteur
-    }, 2000);
+      console.log(roundScore += randomNumber) // Incrémente le compteur
+    }, 1500)
   } else { // Si le score est 1, PERDU.
-    setTimeout(function() {
-      console.log("merde");
-      cpt = 0; // Réinitialise le compteur à zéro
-    }, 2000);
+    console.log("merde")
   }
 
  }
@@ -129,3 +123,25 @@ function rollDice() {
  // - Lancer le dé. S'il obtient 1, le "score temporaire" repasse à zéro, les points sont perdus et on change de tour.
 
  // Le premier qui atteint 100 points a gagné.
+
+
+ // *** Initialiser partie (function) ***///
+// SELECT INGAMEPLAYER
+let players = [playerUn, playerDeux]
+
+let inGamePlayer = 0;
+let globalScore;
+
+ // roundScore
+
+
+ // *** Démarrer partie (function) ***///
+ /*
+ - Si inGamePlayer est sur player 1,
+ alors diceleft et shadowleft
+ sinon diceRight et shadowright
+
+
+  */
+
+
