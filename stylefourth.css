@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Indie Flower';
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 /**** ____HEADER____ ****/
@@ -18,7 +18,7 @@ header {
 }
 
 h1 {
-  margin: 1rem;
+  margin: 1rem 0 0;
   text-shadow: 2px 0 #232931;
   font-size: clamp(32px, 12vw, 7rem);
   color: #f57b72;
@@ -31,6 +31,26 @@ h1 {
   margin: auto;
   font-size: clamp(1.1rem, 1.3vw, 2.2rem);
   justify-content: space-evenly;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar a:after {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 2px;
+  width: 0;
+  background: transparent;
+  transition: width .5s ease;
+}
+
+.navbar a:hover:after {
+  width: 90%;
+  background: #444;
 }
 
 /**** ____CONTAINER____ ****/
@@ -205,19 +225,19 @@ h1 {
 /* __________ ANIMATING ROTATION ______________ */
 
 .animationShadowLeft {
-	animation: shadowRotateLeft 2.2s; 
+	animation: shadowRotateLeft 1.2s; 
 }
 
 .animationShadowRight {
-	animation: shadowRotateRight 2s; 
+	animation: shadowRotateRight 1.2s; 
 }
 
 .animationDiceLeft {
-  animation: diceRotateLeft 2s;
+  animation: diceRotateLeft 1s;
 }
 
 .animationDiceRight {
-  animation: diceRotateRight 2s;
+  animation: diceRotateRight 1s;
 }
 
 /* Animation for DESKTOP (doesn't work on mobiles) */

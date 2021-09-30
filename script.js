@@ -91,18 +91,21 @@ function rollDice() {
   
   setTimeout(function() {
    dice.classList.remove('animationDiceLeft')
- }, 1500);
+ }, 1200);
  setTimeout(function() {
    shadow.classList.remove('animationShadowLeft')
- }, 1500)
+ }, 1200)
 
 
   if (randomNumber !== 1) { // Si le score n'est pas 1, on continue :
     setTimeout(function() {
       console.log(roundScore += randomNumber) // Incrémente le compteur
-    }, 1500)
-  } else { // Si le score est 1, PERDU.
-    console.log("merde")
+    }, 1200)
+  } else { 
+    setTimeout(function() {
+      console.log("merde");
+      roundScore = 0; // Incrémente le compteur
+    }, 1200)// Si le score est 1, PERDU.
   }
 
  }
