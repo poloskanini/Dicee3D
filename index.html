@@ -10,15 +10,15 @@
   <!-- Imported font 'Lobster' -->
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
   <!-- My CSS -->
-  <link rel="stylesheet" href="stylefourthbackup.css">
+  <link rel="stylesheet" href="stylefourth.css">
 </head>
 <body>
 
   <header class="header">
-      <h1>🎲 Dicee Game 🎲</h1>
+    <h1>🎲 Dicee Game 🎲</h1>
     <nav class="navbar">
-      <a href="#" id="newGame">New Game</a>
-      <a href="#" id="rules">Rules</a>
+      <a href="#" class="newGame active">New Game</a>
+      <a href="#" class="rules">Rules</a>
     </nav>
 
   </header>
@@ -27,7 +27,7 @@
 
     <div class="players">
 
-      <div class="player playerUn">
+      <div class="player" id="player-1">
 
         <div class="player-title">
           <p>Player 1</p>
@@ -35,18 +35,18 @@
         
         <div class="playerInner playerInner1 row row-cols-2 row-cols-lg-1 p-2">
           <div class="roundWrap col d-flex flex-column align-items-lg-center">
-            <div id="roundScore-1" class="roundScore text-center">_</div>
+            <div class="roundScore text-center">6</div>
             <div class="holdScore col-lg-6">Hold Score</div>
           </div>
-          <div class="globallWrap col">
-            <div id="globalScore-1" class="globalScore text-center">0</div>
-            <div class="globalScoreText text-center">TOTAL</div>
+          <div class="totalWrap col">
+            <div class="totalScore text-center">43</div>
+            <div class="totalScoreText text-center">TOTAL</div>
           </div>
         </div>
 
       </div>
 
-      <div class="player playerDeux">
+      <div class="player" id="player-2">
 
         <div class="player-title">
           <p>Player 2</p>
@@ -54,12 +54,12 @@
 
         <div class="playerInner playerInner1 row row-cols-2 row-cols-lg-1 p-2">
           <div class="roundWrap col d-flex flex-column align-items-lg-center">
-            <div id="roundScore-2" class="roundScore text-center">_</div>
+            <div class="roundScore text-center">8</div>
             <div class="holdScore col-lg-6">Hold Score</div>
           </div>
-          <div class="globalWrap col">
-            <div id="globalScore-2" class="globalScore text-center">0</div>
-            <div class="globalScoreText text-center">TOTAL</div>
+          <div class="totalWrap col">
+            <div class="totalScore text-center">72</div>
+            <div class="totalScoreText text-center">TOTAL</div>
           </div>
         </div>
         

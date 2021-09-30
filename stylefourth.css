@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Indie Flower';
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 /**** ____HEADER____ ****/
@@ -18,7 +18,7 @@ header {
 }
 
 h1 {
-  margin: 1rem 0 0;
+  margin: 1rem;
   text-shadow: 2px 0 #232931;
   font-size: clamp(32px, 12vw, 7rem);
   color: #f57b72;
@@ -33,28 +33,6 @@ h1 {
   justify-content: space-evenly;
 }
 
-.navbar a {
-  text-decoration: none;
-  color: #000;
-  padding: 1rem;
-}
-
-.navbar a:after {
-  content: '';
-  display: block;
-  margin: auto;
-  height: 2px;
-  width: 0;
-  background: transparent;
-  transition: width .5s ease;
-}
-
-.navbar a:hover:after {
-  width: 90%;
-  background: #444;
-}
-
-
 /**** ____CONTAINER____ ****/
 .container {
   font-family: 'Indie Flower';
@@ -66,6 +44,7 @@ h1 {
   position: relative;
   width: 100%;
   height: auto;
+  margin: 3rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -75,6 +54,7 @@ h1 {
   width: 100%;
   top: 100px;
   padding: 0 1.5rem;
+  border: 1px solid black;
   min-height: 30vh;
 }
 
@@ -87,28 +67,20 @@ h1 {
   text-align: center;
 }
 
-.playerUn {
+#player-1 {
+  /* background: red; */
   margin-bottom: 9rem;
 }
 
-.playerDeux {
-  margin: 0;
-}
-
-.playerUnSelect {
-  background: #ebfcf8;
-  box-shadow: 1px 1px 10px lightgrey;
-}
-
-.playerDeuxSelect {
-  background: #fdf7f7;
-  box-shadow: 1px 1px 10px lightgrey;
-}
-
 /**** PLAYERS INNER ****/
+.playerInner {
+}
+
 /* RoundWrap */
+
+
 .roundScore,
-.globalScore {
+.totalScore {
   font-size: clamp(3rem, 5vw, 8rem);
   font-family: 'Lobster Two';
   font-weight: bold;
@@ -120,7 +92,7 @@ h1 {
   color: #4ECCA3;
 }
 
-.globalScore {
+.totalScore {
   color: #E78177;
 }
 
@@ -146,7 +118,7 @@ h1 {
   box-shadow: 0 1px rgba(0, 0, 0, .3);
 }
 
-.globalScoreText {
+.totalScoreText {
   color: #E78177;
   font-size: clamp(2rem, 2vw, 3rem);
   font-family: 'Lobster Two';
@@ -233,19 +205,19 @@ h1 {
 /* __________ ANIMATING ROTATION ______________ */
 
 .animationShadowLeft {
-	animation: shadowRotateLeft 1.2s; 
+	animation: shadowRotateLeft 2.2s; 
 }
 
 .animationShadowRight {
-	animation: shadowRotateRight 1.2s; 
+	animation: shadowRotateRight 2s; 
 }
 
 .animationDiceLeft {
-  animation: diceRotateLeft 1s;
+  animation: diceRotateLeft 2s;
 }
 
 .animationDiceRight {
-  animation: diceRotateRight 1s;
+  animation: diceRotateRight 2s;
 }
 
 /* Animation for DESKTOP (doesn't work on mobiles) */
@@ -358,10 +330,6 @@ footer {
   text-align: center;
 }
 
-footer p {
-  margin: 0;
-}
-
 
 /*________ MEDIAS QUERIES______ */
 
@@ -382,13 +350,3 @@ footer p {
     height: 70vh;
   }
 }
-
-/*******   MOBILE LANDSCAPE  ********/
-@media screen and (min-width : 400px) and (max-height: 800px) {
-
-  .wrapper {
-    left: 50%;
-    top: 75%;
-    transform: translate(-50%, -50%);
-  }
-} 
