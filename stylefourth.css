@@ -17,6 +17,10 @@ header {
   font-family: 'Lobster';
 }
 
+header a {
+  text-decoration: none;
+}
+
 h1 {
   margin: 1rem 0 0;
   text-shadow: 2px 0 #232931;
@@ -74,7 +78,6 @@ h1 {
   width: 100%;
   top: 100px;
   padding: 0 1.5rem;
-  border: 1px solid black;
   min-height: 30vh;
 }
 
@@ -87,17 +90,27 @@ h1 {
   text-align: center;
 }
 
-#player-1 {
-  /* background: red; */
+.playerUn {
   margin-bottom: 9rem;
 }
 
-/**** PLAYERS INNER ****/
-.playerInner {
+.playerDeux {
+  margin: 0;
 }
 
-/* RoundWrap */
+.playerUnSelect {
+  background: #ebfcf8;
+  box-shadow: 1px 1px 10px lightgrey;
+  transition: .1s all ease-in-out;
+}
 
+.playerDeuxSelect {
+  background: #fdf7f7;
+  box-shadow: 1px 1px 10px lightgrey;
+}
+
+/**** PLAYERS INNER ****/
+/* RoundWrap */
 
 .roundScore,
 .totalScore {
@@ -146,7 +159,40 @@ h1 {
   text-shadow: 1px 0 #232931;
 }
 
+/* Arrow Wrap */
 
+.popUp {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+.popUpText {
+  display: block;
+  margin: auto 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  opacity: 0;
+  animation: pulsingText 4s linear alternate infinite;
+}
+
+@keyframes pulsingText {
+  to {
+    opacity: .8;
+  }
+}
+
+.popUpActive {
+  visibility: visible;
+}
 
 /* Wrapper (Dice + Shadow) */
 .wrapper {
@@ -275,6 +321,16 @@ h1 {
 @keyframes shadowRotateLeft {
   0% {
     -webkit-transform: translate3d(-1000px, 200px, 2000px);  
+  }     
+  100% {  
+    -webkit-transform: translate3d(0, 0, -800px);    
+    ;     
+  }  
+}
+
+@keyframes shadowRotateRight {
+  0% {
+    -webkit-transform: translate3d(1000px, 200px, 2000px);  
   }     
   100% {  
     -webkit-transform: translate3d(0, 0, -800px);    
