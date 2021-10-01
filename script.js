@@ -31,7 +31,6 @@ const popUp = document.querySelector('.popUp');
 // NEW GAME
 const newGame = document.getElementById('newGame');
 
-
 // __________CSS EFFECTS________ //
 // Hover DICE
 wrapper.addEventListener("mouseover", function() {
@@ -42,50 +41,45 @@ wrapper.addEventListener("mouseleave", function() {
   shadow.style.background = "";
 });
 
-// Dice Static Rotate (default behaviour)
+// Dice staticRotate (default behaviour)
 const diceStaticRotate = () => {
   dice.classList.add("staticRotate");
 }
 diceStaticRotate();
 
-// FUNCTION STARTGAME
-
+// __________FUNCTIONS________ //
+// ***  STARTGAME() FUNCTION  *** \\
 const startGame = () => {
-  // 1- Animation Dé Statique
+  playerUnSelected();
+  // Animation Dé Statique
   diceStaticRotate();
-  // 2- Initialiser le currentPlayer à 1
-  currentPlayer = 1;
-  // 3- Surligner le player 1
-  playerUn.classList.add('playerUnSelect');
-  // 4- Reseter le roundScore
+  //  Reset roundScore
   roundScore = 0;
   roundScoreUn.textContent = 0;
   roundScoreDeux.textContent = 0;
-  // 5- Reseter le globalScore
+  // Reset globalScore
   globalScore = 0;
-  // 6- PopUp ON
+  // PopUp ON
   popUp.classList.add('popUpActive')
 }
 
 newGame.addEventListener("click", startGame)
 
-
-
-
-
-// Lancement du dé par Joueur 1 (rollDiceLeft)
-
+// ***  ROLLDICE() FUNCTION *** \\
 const rollDice = () => {
 
+  if(currentPlayer === undefined) {
+    playerUnSelected();
+  }
+
+  // PopUp OFF
   popUp.classList.remove('popUpActive')
 
 
-
-  let currentPlayer = 1;
-
-  // Create randomNumber between 1 & 6 ( the "+ 1" excludes the zero)
+  // Create randomNumber between 1 & 6
   let randomNumber = Math.floor(Math.random() * 6) + 1;
 
+  // Dice faces Display
   switch (randomNumber) {
     case 1:
       front.style.backgroundImage = "url(images/die-1.png)";
@@ -113,15 +107,12 @@ const rollDice = () => {
       break;
   }
 
-  // Si player ONE : animationDiceLeft + animationShadowLeft
-  // Si player TWO : animationDiceRight + animationShadowRight
-
+  // LEFT THROW else RIGHT THROW
   if (currentPlayer === 1) {
     dice.classList.remove("staticRotate");
     shadow.classList.remove("staticShadow");
     dice.classList.toggle('animationDiceLeft');
     shadow.classList.toggle('animationShadowLeft');
-  
     setTimeout(function() {
       dice.classList.remove('animationDiceLeft')
     }, 1200);
@@ -133,33 +124,45 @@ const rollDice = () => {
     shadow.classList.remove("staticShadow");
     dice.classList.toggle('animationDiceRight');
     shadow.classList.toggle('animationShadowRight');
-  
     setTimeout(function() {
       dice.classList.remove('animationDiceRight')
     }, 1200);
     setTimeout(function() {
       shadow.classList.remove('animationShadowRight')
     }, 1200)
-
   }
 
-  if (randomNumber !== 1) { // Si le score n'est pas 1, on continue :
+  // SCORE IS NOT 1 ?
+  if (randomNumber !== 1) {
     setTimeout(function() {
-      console.log(roundScore+= randomNumber)
-      roundScoreUn.textContent = roundScore;
+      if(currentPlayer === 1) {
+        roundScore+= randomNumber
+        roundScoreUn.textContent = roundScore;
+      } else {
+        roundScore+= randomNumber
+        roundScoreDeux.textContent = roundScore;
+      }
+      
     }, 1200)
+
   } else { 
     setTimeout(function() {
-      console.log("merde");
-      roundScore = 0;
-      roundScoreUn.textContent = roundScore;
+      if (currentPlayer === 1) {
+        roundScore = 0;
+        roundScoreUn.innerText = 0;
+        playerDeuxSelected()
+      } else {
+        roundScore = 0;
+        roundScoreDeux.innerText = 0;
+        playerUnSelected()
+      }
       // Incrémente le compteur
     }, 1200)// Si le score est 1, PERDU.
   }
 
  }
 
- // LANCER LES DÉS
+ // THROW DICE
  dice.addEventListener("click", rollDice);
 
 
@@ -170,30 +173,6 @@ let players = [playerUn, playerDeux]
 let inGamePlayer = 0;
 let globalScore;
 
- // roundScore
-
-
- // *** Démarrer partie (function) ***///
- /*
- - Si inGamePlayer est sur player 1,
- alors diceleft et shadowleft
- sinon diceRight et shadowright
-
-
-  */
-
-
-// Fonctions
-
-// LOSE FONCTION
-const lose = () => {
-
-  /*
-1- reset le roundScore à 0
-2- Change de currentplayer en appelant la fonction SELECTPLAYER
-*/
-
-}
 
 // HOLD FONCTION
 
@@ -211,9 +190,41 @@ const holdPush = () => {
 
 const selectPlayer = () => {
 
-    /*
-1- currentplayer === player-1 ? currentPlayer = player-2 : activePlayer = player-1;
-3- Change de currentplayer
+if (currentPlayer === 1) {
+    currentPlayer = 2;
+    playerDeux.classList.add('playerDeuxSelect');
+    playerUn.classList.remove('playerUnSelect');
+  } else if (currentPlayer === 2) {
+    currentPlayer = 1;
+    playerUn.classList.add('playerUnSelect');
+    playerDeux.classList.remove('playerDeuxSelect');
+  } else if (currentPlayer === undefined) {
+    playerUn.classList.add('playerUnSelect');
+  }
+
+}
+
+// RESET FONCTION
+
+const reset = () => {
+
+  /*
+
 */
 
 }
+// PLAYERUN SELECTED
+const playerUnSelected = () => {
+  playerUn.classList.add('playerUnSelect');
+  playerDeux.classList.remove('playerDeuxSelect');
+  currentPlayer = 1;
+
+}
+
+const playerDeuxSelected = () => {
+  playerDeux.classList.add('playerDeuxSelect');
+  playerUn.classList.remove('playerUnSelect');
+  currentPlayer = 2;
+}
+
+// PLAYERDEUX SELECTED

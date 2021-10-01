@@ -7,9 +7,11 @@
   padding: 0;
 }
 
-body {
+body,
+html {
   font-family: 'Indie Flower';
   font-size: 1.1rem;
+  height: 100%;
 }
 
 /**** ____HEADER____ ****/
@@ -101,7 +103,7 @@ h1 {
 .playerUnSelect {
   background: #ebfcf8;
   box-shadow: 1px 1px 10px lightgrey;
-  transition: .1s all ease-in-out;
+  transition: .2s all ease-in-out;
 }
 
 .playerDeuxSelect {
@@ -181,12 +183,12 @@ h1 {
   font-weight: bold;
   color: #000;
   opacity: 0;
-  animation: pulsingText 4s linear alternate infinite;
+  animation: pulsingText 2.5s alternate infinite ease-in-out;
 }
 
 @keyframes pulsingText {
   to {
-    opacity: .8;
+    opacity: .7;
   }
 }
 
@@ -269,7 +271,6 @@ h1 {
 }
 
 /* __________ ANIMATING ROTATION ______________ */
-
 .animationShadowLeft {
 	animation: shadowRotateLeft 1.2s; 
 }
@@ -297,45 +298,42 @@ h1 {
   }  
 } */
 
-/* Animation (WORKS for DESKTOP + MOBILE !) */
+/* Animation DICE (WORKS for DESKTOP + MOBILE) */
 @keyframes diceRotateLeft {
   0% {
-    -webkit-transform: translate3d(-1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);  
-  }     
-  100% {  
-    -webkit-transform: translate3d(0,0,0) rotateX(3600deg) rotateY(360deg);    
-    ;     
-  }  
+    -webkit-transform: translate3d(-1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: translate3d(0,0,0) rotateX(3600deg) rotateY(360deg);
+  }
 }
 
 @keyframes diceRotateRight {
   0% {
-    -webkit-transform: translate3d(1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);  
-  }     
-  100% {  
-    -webkit-transform: translate3d(0,0,0) rotateX(3600deg) rotateY(360deg);    
-    ;     
-  }  
+    -webkit-transform: translate3d(1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: translate3d(0,0,0) rotateX(3600deg) rotateY(360deg);
+  }
 }
 
 @keyframes shadowRotateLeft {
   0% {
-    -webkit-transform: translate3d(-1000px, 200px, 2000px);  
-  }     
+    -webkit-transform: translate3d(-1000px, 200px, 2000px);
+  }
   100% {  
-    -webkit-transform: translate3d(0, 0, -800px);    
-    ;     
-  }  
+    -webkit-transform: translate3d(0, 0, -800px);
+  }
 }
 
 @keyframes shadowRotateRight {
   0% {
     -webkit-transform: translate3d(1000px, 200px, 2000px);  
-  }     
-  100% {  
+  }
+  100% {
     -webkit-transform: translate3d(0, 0, -800px);    
     ;     
-  }  
+  }
 }
 
 /* @keyframes shadowRotateRight {
@@ -362,8 +360,7 @@ h1 {
 } */
 
 
-/* __________________________________________ */
-/* STATIC ROTATION */
+/* ___________  STATIC ROTATION  ____________ */
 
 .shadow {
 	width: 130px;
@@ -397,13 +394,18 @@ h1 {
   }
 }
 
-
+/* FOOTER */
 footer {
   color: #4ECCA3;
   position: relative;
   bottom: 0;
   width: 100%;
   text-align: center;
+  padding: 2rem 0 10px;
+}
+
+footer p {
+  margin: 0;
 }
 
 
@@ -424,5 +426,9 @@ footer {
 
   .player {
     height: 70vh;
+  }
+
+  .playerUn {
+    margin-bottom: 0;
   }
 }
