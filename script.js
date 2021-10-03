@@ -25,6 +25,10 @@ let roundScore = 0;
 // HOLDSCORE Button
 let holdScoreUn = document.getElementById('holdScore-1');
 let holdScoreDeux = document.getElementById('holdScore-2');
+// Player Title
+const playerTitleUn = document.querySelector('.player-title1');
+const playerTitleDeux = document.querySelector('.player-title2');
+
 
 // Ne fonctionne que sur le premier HOLD SCORE BUTTON !
 
@@ -53,7 +57,6 @@ const diceStaticRotate = () => {
 diceStaticRotate();
 
 // __________FUNCTIONS________ //
-
 // ***  STARTGAME() FUNCTION  *** \\
 const startGame = () => {
   // Reset Scores
@@ -61,9 +64,14 @@ const startGame = () => {
   totalScoreUnResult = 0;
   totalScoreDeuxResult = 0;
   totalScoreUn.textContent = 0;
-  roundScoreUn.textContent = 0;
+  // roundScoreUn.textContent = 0;
   totalScoreDeux.textContent = 0;
   roundScoreDeux.textContent = 0;
+  // Réactive les holdScore
+  holdScoreUn.disabled = false;
+  holdScoreDeux.disabled = false;
+  playerTitleUn.textContent = "Player 1";
+  playerTitleDeux.textContent = "Player 2"
   // Player 1 selected
   playerUnSelected();
   // Static Rotate Dice
@@ -147,7 +155,6 @@ const rollDice = () => {
       if (currentPlayer === 1) {
         roundScore += randomNumber
         roundScoreUn.textContent = roundScore;
-        
       } else {
         roundScore+= randomNumber
         roundScoreDeux.textContent = roundScore;
@@ -155,7 +162,7 @@ const rollDice = () => {
     }, 1000)
 
   // SCORE IS 1 ?
-  } else if(randomNumber === 1) { 
+  } else if (randomNumber === 1) { 
     setTimeout(function() {
       if (currentPlayer === 1) {
         roundScore = 0;
@@ -170,8 +177,7 @@ const rollDice = () => {
   }
  }
 
-
-// HOLD EVENTS
+// HOLD EVENT
 holdScoreUn.addEventListener("click", () => {
   if (currentPlayer === 1) {
     totalScoreUnResult += roundScore;
@@ -179,39 +185,24 @@ holdScoreUn.addEventListener("click", () => {
     roundScoreUn.textContent = 0;
     playerDeuxSelected();
   }
-    
 })
 
 holdScoreDeux.addEventListener("click", () => {
   if (currentPlayer === 2) {
-  totalScoreDeuxResult += roundScore;
-  totalScoreDeux.textContent = totalScoreDeuxResult;
-  roundScoreDeux.textContent = 0;
-  playerUnSelected();
+    totalScoreDeuxResult += roundScore;
+    totalScoreDeux.textContent = totalScoreDeuxResult;
+    roundScoreDeux.textContent = 0;
+    playerUnSelected();
   }
-  
 })
 
-
-// SELECTPLAYER FONCTION (peut être enlevé ??)
-const selectPlayer = () => {
-
-if (currentPlayer === 1) {
-    currentPlayer = 2;
-    playerDeux.classList.add('playerDeuxSelect');
-    playerUn.classList.remove('playerUnSelect');
-  } else if (currentPlayer === 2) {
-    currentPlayer = 1;
-    playerUn.classList.add('playerUnSelect');
-    playerDeux.classList.remove('playerDeuxSelect');
-  } else if (currentPlayer === undefined) {
-    playerUn.classList.add('playerUnSelect');
-  }
-}
-
-// PLAYERUN SELECTED
+// PLAYER UN SELECTED
 const playerUnSelected = () => {
-  diceStaticRotate();
+  if (totalScoreDeuxResult >= 5) {
+    // WIN FONCTION
+    win();
+  } else {
+    diceStaticRotate();
   //  Reset Scores
   roundScore = 0;
   popUp.classList.add('popUpActive')
@@ -219,17 +210,34 @@ const playerUnSelected = () => {
   playerUn.classList.add('playerUnSelect');
   playerDeux.classList.remove('playerDeuxSelect');
   currentPlayer = 1;
-
+  }
 }
 
-// PLAYERDEUX SELECTED
+// PLAYER DEUX SELECTED
 const playerDeuxSelected = () => {
-  diceStaticRotate();
-  //  Reset Scores
-  roundScore = 0;
-  popUp.classList.add('popUpActive')
-  popUpText.innerHTML="Au tour de Player 2"
-  playerDeux.classList.add('playerDeuxSelect');
-  playerUn.classList.remove('playerUnSelect');
-  currentPlayer = 2;
+  if (totalScoreUnResult >= 5) {
+    // WIN FONCTION
+    win();
+  } else {
+    diceStaticRotate();
+    //  Reset Scores
+    roundScore = 0;
+    popUp.classList.add('popUpActive')
+    popUpText.innerHTML="Au tour de Player 2"
+    playerDeux.classList.add('playerDeuxSelect');
+    playerUn.classList.remove('playerUnSelect');
+    currentPlayer = 2;
+  }
+}
+
+// WIN FONCTION
+const win = () => {
+  if (currentPlayer === 1) {
+    (playerTitleUn.textContent = playerTitleUn.textContent + " a gagné !");
+  } else {
+    (playerTitleDeux.textContent = playerTitleDeux.textContent + " a gagné !")
+  }
+  holdScoreUn.disabled = true;
+  holdScoreDeux.disabled = true;
+  dice.removeEventListener("click", rollDice, false);
 }
