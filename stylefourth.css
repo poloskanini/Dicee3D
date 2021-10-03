@@ -70,7 +70,7 @@ h1 {
   position: relative;
   width: 100%;
   height: auto;
-  margin: 3rem 0;
+  margin: 2rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -94,21 +94,24 @@ h1 {
 
 .playerUn {
   margin-bottom: 9rem;
+  box-shadow: 1px 0 10px lightgrey;
+
 }
 
 .playerDeux {
   margin: 0;
+  box-shadow: 1px 1px 10px lightgrey;
+
 }
 
 .playerUnSelect {
   background: #ebfcf8;
-  box-shadow: 1px 1px 10px lightgrey;
   transition: .2s all ease-in-out;
 }
 
 .playerDeuxSelect {
-  background: #fdf7f7;
-  box-shadow: 1px 1px 10px lightgrey;
+  background: #faeaea;
+  transition: .2s all ease-in-out;
 }
 
 /**** PLAYERS INNER ****/
@@ -170,7 +173,7 @@ h1 {
   display: flex;
   justify-content: center;
   text-align: center;
-  top: 45%;
+  top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
   visibility: hidden;
@@ -179,21 +182,21 @@ h1 {
 .popUpText {
   display: block;
   margin: auto 0;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #000;
   opacity: 0;
   animation: pulsingText 2.5s alternate infinite ease-in-out;
 }
 
+.popUpActive {
+  visibility: visible;
+}
+
 @keyframes pulsingText {
   to {
     opacity: .7;
   }
-}
-
-.popUpActive {
-  visibility: visible;
 }
 
 /* Wrapper (Dice + Shadow) */
@@ -272,11 +275,11 @@ h1 {
 
 /* __________ ANIMATING ROTATION ______________ */
 .animationShadowLeft {
-	animation: shadowRotateLeft 1.2s; 
+	animation: shadowRotateLeft 1s; 
 }
 
 .animationShadowRight {
-	animation: shadowRotateRight 1.2s; 
+	animation: shadowRotateRight 1s; 
 }
 
 .animationDiceLeft {

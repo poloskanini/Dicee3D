@@ -28,6 +28,7 @@ const holdScore = document.querySelector('.holdScore');
 let currentPlayer;
 // POPUP
 const popUp = document.querySelector('.popUp');
+const popUpText = document.querySelector('.popUpText');
 // NEW GAME
 const newGame = document.getElementById('newGame');
 
@@ -48,6 +49,7 @@ const diceStaticRotate = () => {
 diceStaticRotate();
 
 // __________FUNCTIONS________ //
+
 // ***  STARTGAME() FUNCTION  *** \\
 const startGame = () => {
   playerUnSelected();
@@ -61,21 +63,19 @@ const startGame = () => {
   globalScore = 0;
   // PopUp ON
   popUp.classList.add('popUpActive')
-}
+  popUpText.innerHTML="Click on the dice"
 
+}
 newGame.addEventListener("click", startGame)
+
 
 // ***  ROLLDICE() FUNCTION *** \\
 const rollDice = () => {
-
   if(currentPlayer === undefined) {
     playerUnSelected();
   }
-
   // PopUp OFF
-  popUp.classList.remove('popUpActive')
-
-
+  popUp.classList.remove('popUpActive');
   // Create randomNumber between 1 & 6
   let randomNumber = Math.floor(Math.random() * 6) + 1;
 
@@ -107,7 +107,7 @@ const rollDice = () => {
       break;
   }
 
-  // LEFT THROW else RIGHT THROW
+  // LEFT THROW
   if (currentPlayer === 1) {
     dice.classList.remove("staticRotate");
     shadow.classList.remove("staticShadow");
@@ -119,7 +119,7 @@ const rollDice = () => {
     setTimeout(function() {
       shadow.classList.remove('animationShadowLeft')
     }, 1200)
-  } else {
+  } else { // RIGHT THROW
     dice.classList.remove("staticRotate");
     shadow.classList.remove("staticShadow");
     dice.classList.toggle('animationDiceRight');
@@ -135,17 +135,17 @@ const rollDice = () => {
   // SCORE IS NOT 1 ?
   if (randomNumber !== 1) {
     setTimeout(function() {
-      if(currentPlayer === 1) {
+      if (currentPlayer === 1) {
         roundScore+= randomNumber
         roundScoreUn.textContent = roundScore;
       } else {
         roundScore+= randomNumber
         roundScoreDeux.textContent = roundScore;
       }
-      
     }, 1200)
 
-  } else { 
+  // SCORE IS 1 ?
+  } else if(randomNumber === 1) { 
     setTimeout(function() {
       if (currentPlayer === 1) {
         roundScore = 0;
@@ -156,22 +156,12 @@ const rollDice = () => {
         roundScoreDeux.innerText = 0;
         playerUnSelected()
       }
-      // Incrémente le compteur
-    }, 1200)// Si le score est 1, PERDU.
+    }, 1200)
   }
-
  }
 
  // THROW DICE
  dice.addEventListener("click", rollDice);
-
-
- // *** Initialiser partie (function) ***///
-// SELECT INGAMEPLAYER
-let players = [playerUn, playerDeux]
-
-let inGamePlayer = 0;
-let globalScore;
 
 
 // HOLD FONCTION
@@ -187,7 +177,6 @@ const holdPush = () => {
 }
 
 // SELECTPLAYER FONCTION
-
 const selectPlayer = () => {
 
 if (currentPlayer === 1) {
@@ -201,30 +190,30 @@ if (currentPlayer === 1) {
   } else if (currentPlayer === undefined) {
     playerUn.classList.add('playerUnSelect');
   }
-
 }
 
 // RESET FONCTION
-
 const reset = () => {
 
-  /*
-
-*/
 
 }
 // PLAYERUN SELECTED
 const playerUnSelected = () => {
+  diceStaticRotate();
+  popUp.classList.add('popUpActive')
+  popUpText.innerHTML="Au tour de Player 1"
   playerUn.classList.add('playerUnSelect');
   playerDeux.classList.remove('playerDeuxSelect');
   currentPlayer = 1;
 
 }
 
+// PLAYERDEUX SELECTED
 const playerDeuxSelected = () => {
+  diceStaticRotate();
+  popUp.classList.add('popUpActive')
+  popUpText.innerHTML="Au tour de Player 2"
   playerDeux.classList.add('playerDeuxSelect');
   playerUn.classList.remove('playerUnSelect');
   currentPlayer = 2;
 }
-
-// PLAYERDEUX SELECTED
