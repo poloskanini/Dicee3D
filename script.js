@@ -20,10 +20,14 @@ let roundScoreUn = document.getElementById('roundScore-1');
 let roundScoreDeux = document.getElementById('roundScore-2');
 let totalScoreUn = document.getElementById('totalScore-1');
 let totalScoreDeux = document.getElementById('totalScore-2');
-// ROUNDSCORE
+// ROUNDSCORE & TOTALSCORE
 let roundScore = 0;
 // HOLDSCORE Button
-const holdScore = document.querySelector('.holdScore');
+let holdScoreUn = document.getElementById('holdScore-1');
+let holdScoreDeux = document.getElementById('holdScore-2');
+
+// Ne fonctionne que sur le premier HOLD SCORE BUTTON !
+
 // CURRENT PLAYER
 let currentPlayer;
 // POPUP
@@ -35,7 +39,7 @@ const newGame = document.getElementById('newGame');
 // __________CSS EFFECTS________ //
 // Hover DICE
 wrapper.addEventListener("mouseover", function() {
-  shadow.style.background = "rgba(54, 54, 54, .7)";
+  shadow.style.background = "rgba(54, 54, 54, .6)";
   shadow.style.transition = ".5s all ease";
 });
 wrapper.addEventListener("mouseleave", function() {
@@ -52,26 +56,31 @@ diceStaticRotate();
 
 // ***  STARTGAME() FUNCTION  *** \\
 const startGame = () => {
-  playerUnSelected();
-  // Animation Dé Statique
-  diceStaticRotate();
-  //  Reset roundScore
+  // Reset Scores
   roundScore = 0;
+  totalScoreUnResult = 0;
+  totalScoreDeuxResult = 0;
+  totalScoreUn.textContent = 0;
   roundScoreUn.textContent = 0;
+  totalScoreDeux.textContent = 0;
   roundScoreDeux.textContent = 0;
-  // Reset globalScore
-  globalScore = 0;
+  // Player 1 selected
+  playerUnSelected();
+  // Static Rotate Dice
+  diceStaticRotate();
   // PopUp ON
-  popUp.classList.add('popUpActive')
-  popUpText.innerHTML="Click on the dice"
+  popUp.classList.add('popUpActive');
+  popUpText.innerHTML="Click on the dice";
 
+  // THROW DICE
+  dice.addEventListener("click", rollDice);
 }
-newGame.addEventListener("click", startGame)
 
+newGame.addEventListener("click", startGame);
 
 // ***  ROLLDICE() FUNCTION *** \\
 const rollDice = () => {
-  if(currentPlayer === undefined) {
+  if (currentPlayer === undefined) {
     playerUnSelected();
   }
   // PopUp OFF
@@ -115,10 +124,10 @@ const rollDice = () => {
     shadow.classList.toggle('animationShadowLeft');
     setTimeout(function() {
       dice.classList.remove('animationDiceLeft')
-    }, 1200);
+    }, 1000);
     setTimeout(function() {
       shadow.classList.remove('animationShadowLeft')
-    }, 1200)
+    }, 1000)
   } else { // RIGHT THROW
     dice.classList.remove("staticRotate");
     shadow.classList.remove("staticShadow");
@@ -126,23 +135,24 @@ const rollDice = () => {
     shadow.classList.toggle('animationShadowRight');
     setTimeout(function() {
       dice.classList.remove('animationDiceRight')
-    }, 1200);
+    }, 1000);
     setTimeout(function() {
       shadow.classList.remove('animationShadowRight')
-    }, 1200)
+    }, 1000)
   }
 
   // SCORE IS NOT 1 ?
   if (randomNumber !== 1) {
     setTimeout(function() {
       if (currentPlayer === 1) {
-        roundScore+= randomNumber
+        roundScore += randomNumber
         roundScoreUn.textContent = roundScore;
+        
       } else {
         roundScore+= randomNumber
         roundScoreDeux.textContent = roundScore;
       }
-    }, 1200)
+    }, 1000)
 
   // SCORE IS 1 ?
   } else if(randomNumber === 1) { 
@@ -156,27 +166,34 @@ const rollDice = () => {
         roundScoreDeux.innerText = 0;
         playerUnSelected()
       }
-    }, 1200)
+    }, 1000)
   }
  }
 
- // THROW DICE
- dice.addEventListener("click", rollDice);
+
+// HOLD EVENTS
+holdScoreUn.addEventListener("click", () => {
+  if (currentPlayer === 1) {
+    totalScoreUnResult += roundScore;
+    totalScoreUn.textContent = totalScoreUnResult;
+    roundScoreUn.textContent = 0;
+    playerDeuxSelected();
+  }
+    
+})
+
+holdScoreDeux.addEventListener("click", () => {
+  if (currentPlayer === 2) {
+  totalScoreDeuxResult += roundScore;
+  totalScoreDeux.textContent = totalScoreDeuxResult;
+  roundScoreDeux.textContent = 0;
+  playerUnSelected();
+  }
+  
+})
 
 
-// HOLD FONCTION
-
-const holdPush = () => {
-
-  /*
-1- Transfère roundScore vers globalScore du currentplayer
-2- Reset le roundScore à 0
-3- Change de currentplayer
-*/
-
-}
-
-// SELECTPLAYER FONCTION
+// SELECTPLAYER FONCTION (peut être enlevé ??)
 const selectPlayer = () => {
 
 if (currentPlayer === 1) {
@@ -192,14 +209,11 @@ if (currentPlayer === 1) {
   }
 }
 
-// RESET FONCTION
-const reset = () => {
-
-
-}
 // PLAYERUN SELECTED
 const playerUnSelected = () => {
   diceStaticRotate();
+  //  Reset Scores
+  roundScore = 0;
   popUp.classList.add('popUpActive')
   popUpText.innerHTML="Au tour de Player 1"
   playerUn.classList.add('playerUnSelect');
@@ -211,6 +225,8 @@ const playerUnSelected = () => {
 // PLAYERDEUX SELECTED
 const playerDeuxSelected = () => {
   diceStaticRotate();
+  //  Reset Scores
+  roundScore = 0;
   popUp.classList.add('popUpActive')
   popUpText.innerHTML="Au tour de Player 2"
   playerDeux.classList.add('playerDeuxSelect');
