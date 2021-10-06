@@ -44,11 +44,11 @@
         <div class="playerInner playerInner1 row row-cols-2 row-cols-lg-1 p-2">
           <div class="roundWrap col d-flex flex-column align-items-lg-center">
             <div class="roundScore text-center" id="roundScore-1">0</div>
-            <button class="holdScore col-lg-6" id="holdScore-1">Hold Score</button>
+            <button class="holdScore col-lg-6" id="holdScore-1">Sécuriser </button>
           </div>
           <div class="totalWrap col">
             <div class="totalScore text-center" id="totalScore-1">0</div>
-            <div class="totalScoreText text-center">TOTAL</div>
+            <div class="totalScoreText totalScoreUnText text-center">Total</div>
           </div>
         </div>
 
@@ -64,11 +64,11 @@
         <div class="playerInner playerInner1 row row-cols-2 row-cols-lg-1 p-2">
           <div class="roundWrap col d-flex flex-column align-items-lg-center">
             <div class="roundScore text-center" id="roundScore-2">0</div>
-            <button class="holdScore col-lg-6" id="holdScore-2">Hold Score</button>
+            <button class="holdScore col-lg-6" id="holdScore-2">Sécuriser </button>
           </div>
           <div class="totalWrap col">
             <div class="totalScore text-center" id="totalScore-2">0</div>
-            <div class="totalScoreText text-center">TOTAL</div>
+            <div class="totalScoreText totalScoreDeuxText text-center">Total</div>
           </div>
         </div>
         
@@ -115,16 +115,16 @@
         <div class="inputPlayers">
           <div class="inputPlayer">
             <label class="playerTitleUnLabel" for="playerTitleUnInput">Joueur 1</label>
-            <input type="text" id="playerTitleUnInput" name="playerTitleUnInput" value="Joueur 1" onFocus="javascript:this.value=''">
+            <input type="text" id="playerTitleUnInput" name="playerTitleUnInput" placeholder="Entrez votre prénom" onFocus="javascript:this.value=''">
           </div>
         <!-- Input Player2 -->
         <div class="inputPlayer">
-            <label class="playerTitleUnLabel" for="playerTitleDeuxInput">Joueur 2</label>
-            <input type="text" id="playerTitleDeuxInput" name="playerTitleDeuxInput" value="Joueur 2" onFocus="javascript:this.value=''">
+            <label class="playerTitleDeuxLabel" for="playerTitleDeuxInput">Joueur 2</label>
+            <input type="text" id="playerTitleDeuxInput" name="playerTitleDeuxInput" placeholder="Entrez votre prénom" onFocus="javascript:this.value=''">
         </div>
         <div class="scoreToGet">
-          <label class="scoreToGetLabel" for="scoreToGetLabel">Score à atteindre (10-100) :</label>
-          <input type="number" id="scoreToGetInput" name="scoreToGetInput" min="10" max="100" value="50">
+          <label class="scoreToGetLabel" for="scoreToGetLabel">Quel score voulez-vous atteindre ? (10-100) :</label>
+          <input type="number" id="scoreToGetInput" name="scoreToGetInput" min="10" max="100" step="10" value="100">
         </div>
         
         </div>
@@ -148,11 +148,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body modal-body-rules">
-        <h5><strong>But du jeu :</strong></h5>
-        <h6><strong>Le premier joueur qui atteint les 100 points a gagné !</strong></h6>
+        <h4><strong>But du jeu :</strong></h4>
+        <h5><strong>Le premier joueur qui atteint les 100 points* a gagné !</strong></h5>
         <div class="rules-content">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit voluptatem sunt et optio ab harum dolore veniam provident nisi a.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, dolorem sunt. Sint!</p>
+          <p>- Chaque joueur a un <span style="color: #4ECCA3"><strong>" score temporaire " (en vert) </strong></span>et un <span style="color: #f57b72"><strong>" score total " (en rouge).</strong></span></p>
+          <p>- À chaque tour, vous lancez le dé (en cliquant dessus) autant de fois que vous le souhaitez, et augmentez ainsi votre "score temporaire".</p>
+          <p>- Quand vous souhaitez sécuriser votre "score temporaire", cliquez sur <span class="holdScoreRules">Sécuriser</span> pour ajouter votre score temporaire au TOTAL.</p>
+          <p>- 🚨 <strong>Mais ATTENTION : si votre dé tombe sur 1</strong> et que vous n'avez pas sécurisé votre score, vous perdez votre mise temporaire.</p>
+          <h4 class="goodluck">BONNE CHANCE !</h4>
+          <small>* à personnaliser selon votre choix</small>
         </div>
       </div>
       <div class="modal-footer">

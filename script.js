@@ -22,6 +22,8 @@ let roundScoreUn = document.getElementById('roundScore-1');
 let roundScoreDeux = document.getElementById('roundScore-2');
 let totalScoreUn = document.getElementById('totalScore-1');
 let totalScoreDeux = document.getElementById('totalScore-2');
+let totalScoreUnText = document.querySelector('.totalScoreUnText');
+let totalScoreDeuxText = document.querySelector('.totalScoreDeuxText');
 // ROUNDSCORE & TOTALSCORE
 let roundScore = 0;
 // HOLDSCORE Button
@@ -86,10 +88,19 @@ const startGame = () => {
 }
 
 startGameButton.addEventListener("click", function() {
+  // Reset Win Effects
+  resetWin();
+  // Start Game
   startGame();
   // Personnalised Names
   playerTitleUn.innerHTML = playerTitleUnInput.value.charAt(0).toUpperCase() + playerTitleUnInput.value.slice(1);
   playerTitleDeux.innerHTML = playerTitleDeuxInput.value.charAt(0).toUpperCase() + playerTitleDeuxInput.value.slice(1);
+  if (playerTitleUn.innerText === '') {
+    playerTitleUn.innerHTML = 'Joueur 1'
+  }
+  if (playerTitleDeux.innerText === '') {
+    playerTitleDeux.innerHTML = 'Joueur 2'
+  }
   // ScoreToGet
   scoreToGet = scoreToGetInput.value;
 });
@@ -168,7 +179,7 @@ const rollDice = () => {
         roundScore += randomNumber
         roundScoreUn.textContent = roundScore;
       } else {
-        roundScore+= randomNumber
+        roundScore += randomNumber
         roundScoreDeux.textContent = roundScore;
       }
     }, 1000)
@@ -246,16 +257,42 @@ const playerDeuxSelected = () => {
 const win = () => {
   let hasWon = " a gagné !"
   if (currentPlayer === 1) {
+    //Add Gif
+    playerUn.classList.add('playerUnWinner');
+    // Add "has won"
     playerTitleUn.textContent = `${playerTitleUn.textContent} ${hasWon}`;
+    // Withdraw roundScore, hold and totalScore
+    roundScoreUn.style.display="none";
+    holdScoreUn.style.display="none";
+    totalScoreUn.style.display="none";
+    totalScoreUnText.style.display="none";
   } else {
+    //Add Gif
+    playerDeux.classList.add('playerDeuxWinner');
+    // Add "has won"
     playerTitleDeux.textContent = `${playerTitleDeux.textContent} ${hasWon}`;
+    // Withdraw roundScore, hold and totalScore
+    roundScoreDeux.style.display="none";
+    holdScoreDeux.style.display="none";
+    totalScoreDeux.style.display="none";
+    totalScoreDeuxText.style.display="none";
   }
   holdScoreUn.disabled = true;
   holdScoreDeux.disabled = true;
   dice.removeEventListener("click", rollDice, false);
 }
 
-// TO DO :
+const resetWin = () => {
+  roundScoreUn.style.display="block";
+  holdScoreUn.style.display="block";
+  totalScoreUn.style.display="block";
+  totalScoreUnText.style.display="block";
+  playerUn.classList.remove('playerUnWinner');
+  roundScoreDeux.style.display="block";
+  holdScoreDeux.style.display="block";
+  totalScoreDeux.style.display="block";
+  totalScoreDeuxText.style.display="block";
+  playerDeux.classList.remove('playerDeuxWinner');
+}
 
-// 1- RULES
-// 2- WIN EFFECT
+// TO DO : ARROW

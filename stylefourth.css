@@ -15,6 +15,12 @@ html {
   position: relative;
 }
 
+body {
+  background-image: url(images/91454531_m.jpg);
+  background-size: cover;
+  background-position: top;
+}
+
 /**** ____HEADER____ ****/
 header {
   font-family: 'Lobster';
@@ -50,8 +56,9 @@ h1 {
 
 .navbar-item {
   text-decoration: none;
-  color: #000;
+  color: #FFF;
   font-size: 1.1rem;
+  text-shadow: 1px 0 #232931;
   margin: 0 1.1rem;
 }
 
@@ -81,6 +88,7 @@ input:active, input:focus {
   outline: 0;
   border: none;
   outline-style: none;
+  /* background: rgba(67, 250, 31, 0.6); */
 }
 
 /**** ____CONTAINER____ ****/
@@ -96,6 +104,7 @@ input:active, input:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: #FFF;
 }
 
 .player {
@@ -130,18 +139,28 @@ input:active, input:focus {
 }
 
 .playerUnSelect {
-  background: #ebfcf8;
+  background: #cdf8ee;
   transition: .2s all ease-in-out;
 }
 
 .playerDeuxSelect {
-  background: #faeaea;
+  background: #ffd8d8;
   transition: .2s all ease-in-out;
+}
+
+.playerUnWinner {
+  background-image: url(images/loveAct.gif);
+  background-size: cover;
+}
+
+.playerDeuxWinner {
+  background-image: url(images/carlton2.gif);
+  background-size: cover;
+  background-position: top;
 }
 
 /**** PLAYERS INNER ****/
 /* RoundWrap */
-
 .roundScore,
 .totalScore {
   font-size: clamp(3rem, 5vw, 8rem);
@@ -187,6 +206,7 @@ input:active, input:focus {
   font-family: 'Lobster Two';
   font-weight: bold;
   text-shadow: 1px 0 #232931;
+  margin-bottom: 1rem;
 }
 
 /* PopUp */
@@ -197,7 +217,7 @@ input:active, input:focus {
   display: flex;
   justify-content: center;
   text-align: center;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   visibility: hidden;
@@ -210,7 +230,7 @@ input:active, input:focus {
   font-weight: bold;
   color: #000;
   opacity: 0;
-  animation: pulsingText 2.5s alternate infinite ease-in-out;
+  animation: pulsingText 3s alternate infinite ease-in-out;
 }
 
 .popUpActive {
@@ -222,8 +242,6 @@ input:active, input:focus {
     opacity: .7;
   }
 }
-
-
 
 /* Wrapper (Dice + Shadow) */
 .wrapper {
@@ -315,17 +333,6 @@ input:active, input:focus {
   animation: diceRotateRight 1s;
 }
 
-/* Animation for DESKTOP (doesn't work on mobiles) */
-/* @keyframes diceRotateLeft {
-  0% {
-    -webkit-transform: translateX(-1000px) translate3d(15px, 200px, 2000px);  
-  }     
-  100% {  
-    -webkit-transform: translateX(0px) translateY(0px) rotateX(3600deg) rotateY(360deg) translate3d(0,0,0);    
-    ;     
-  }  
-} */
-
 /* Animation DICE (WORKS for DESKTOP + MOBILE) */
 @keyframes diceRotateLeft {
   0% {
@@ -364,30 +371,6 @@ input:active, input:focus {
   }
 }
 
-/* @keyframes shadowRotateRight {
-  0% {
-    -webkit-transform: translate3d(1000px, 200px, 2000px) rotateX(0deg) rotateY(0deg);  
-  }     
-  100% {  
-    -webkit-transform: translate3d(0,0,0) rotateX(3600deg) rotateY(360deg);    
-    ;     
-  }  
-} */
-
-
-/* Animation for MOBILE ?? (simple rotation, no Z axis) */
-
-/* @keyframes diceRotateLeft {
-  0% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)
-  }     
-  100% {  
-    transform: rotateX(0deg) rotateY(1800deg) rotateZ(-360deg);    
-    ;     
-  }  
-} */
-
-
 /* ___________  STATIC ROTATION  ____________ */
 
 .shadow {
@@ -422,10 +405,11 @@ input:active, input:focus {
   }
 }
 
+/**** MODALS ****/
 /* MODAL NEW GAME */
 .modal-header {
   position: relative;
-  font-family: 'Lobster';
+  font-family: 'Lobster', sans-serif;
   z-index: 10;
 }
 
@@ -478,9 +462,11 @@ input:active, input:focus {
 .playerTitleUnLabel,
 .playerTitleDeuxLabel,
 .scoreToGetLabel {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: #4ECCA3;
+  font-family: 'Lobster', sans-serif;
+  margin-bottom: 10px;
 }
 
 #playerTitleUnInput,
@@ -488,15 +474,14 @@ input:active, input:focus {
 #scoreToGetInput {
   border: 1px solid #4ECCA3;
   font-size: 1.2rem;
-  color: #f57b72;
   text-transform: capitalize;
   text-align: center;
+  padding: 3px;
 }
 
 #scoreToGetInput {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #f57b72;
   text-align: center;
 }
 
@@ -523,22 +508,39 @@ input:active, input:focus {
   z-index: 10;
 }
 
-.modal-body-rules h5, h6 {
-  font-family: 'Lobster';
+.modal-body-rules h4, h5 {
+  font-family: 'Lobster', sans-serif;
 }
 
 .rules-content {
-  font-family: 'Indie Flower';
+  font-family: 'Indie Flower', sans-serif;
   margin-top: 2rem;
+  line-height: 1.9;
+}
+
+.holdScoreRules {
+    background: #F9D2CF;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, .7);
+    transition: all .1s ease-in-out;
+    z-index: 0;
+    text-align: center;
 }
 
 .close-rules {
   z-index: 10;
+  text-align: left;
+}
+
+.goodluck {
+  margin: 0 0 2rem;
 }
 
 /* FOOTER */
 footer {
-  color: #4ECCA3;
+  color: #FFF;
   position: relative;
   bottom: 0;
   width: 100%;
@@ -551,10 +553,8 @@ footer p {
 }
 
 /*________ MEDIAS QUERIES______ */
-
-/*******   DESKTOP  ********/
+/**********   DESKTOP  **********/
 @media screen and (min-width : 800px) {
-
   h1 {
     text-shadow: 5px 0 #232931;
   }
@@ -565,16 +565,12 @@ footer p {
     position: relative;
   }
 
-  /* .player {
-    height: 70vh;
-  } */
-
   .playerUn {
     margin-bottom: 0;
   }
 
   .navbar-item {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin: 0 4rem;
   }
 }
