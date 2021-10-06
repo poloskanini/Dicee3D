@@ -56,6 +56,7 @@ const startGame = () => {
   totalScoreDeuxResult = 0;
   totalScoreUn.textContent = 0;
   totalScoreDeux.textContent = 0;
+  roundScoreUn.textContent = 0;
   roundScoreDeux.textContent = 0;
   holdScoreUn.disabled = false;
   holdScoreDeux.disabled = false;
@@ -87,26 +88,21 @@ const startGame = () => {
 startGameButton.addEventListener("click", function() {
   startGame();
   // Personnalised Names
-
-  // Manque un script qui laisse JOUEUR 1 et JOUEUR 2 si les champs input ne sont pas renseignés
   playerTitleUn.innerHTML = playerTitleUnInput.value.charAt(0).toUpperCase() + playerTitleUnInput.value.slice(1);
   playerTitleDeux.innerHTML = playerTitleDeuxInput.value.charAt(0).toUpperCase() + playerTitleDeuxInput.value.slice(1);
   // ScoreToGet
   scoreToGet = scoreToGetInput.value;
 });
 
-
 // ***  ROLLDICE() FUNCTION *** \\
 const rollDice = () => {
   if (currentPlayer === undefined) {
     playerUnSelected();
   }
-
   // Centering the game
   if (window.matchMedia("max-width: 800px")) {
     window.scroll(130,130)
   }
-
   // PopUp OFF
   popUp.classList.remove('popUpActive');
   // Create randomNumber between 1 & 6
@@ -193,7 +189,7 @@ const rollDice = () => {
   }
  }
 
-// HOLD EVENT
+// ***  HOLD EVENT *** \\
 holdScoreUn.addEventListener("click", () => {
   if (currentPlayer === 1) {
     totalScoreUnResult += roundScore;
@@ -212,7 +208,7 @@ holdScoreDeux.addEventListener("click", () => {
   }
 })
 
-// PLAYER UN SELECTED
+// ***  PLAYER UN SELECTED *** \\
 const playerUnSelected = () => {
   if (totalScoreDeuxResult >= scoreToGet) {
     // WIN FONCTION
@@ -229,7 +225,7 @@ const playerUnSelected = () => {
   }
 }
 
-// PLAYER DEUX SELECTED
+// ***  PLAYER DEUX SELECTED *** \\
 const playerDeuxSelected = () => {
   if (totalScoreUnResult >= scoreToGet) {
     // WIN FONCTION
@@ -246,7 +242,7 @@ const playerDeuxSelected = () => {
   }
 }
 
-// WIN FONCTION
+// *** WIN FUNCTION *** \\
 const win = () => {
   let hasWon = " a gagné !"
   if (currentPlayer === 1) {
@@ -262,14 +258,4 @@ const win = () => {
 // TO DO :
 
 // 1- RULES
-// 2- Personnalisation of names
-// 3- Personnalisation of totalScoreToGet
-
-// totalScoreToGet : Créer une variable vierge scoreToGet, qui va prendre la valeur de l'input, puis dans la fonction playerUnSelected et playerDeuxSelected, intégrer la règle :
-
-/*
-SI (totalScoreDeuxResult >= scoreToGet) {
-  win();
-}
-
-*/
+// 2- WIN EFFECT

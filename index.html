@@ -21,8 +21,10 @@
   <header class="header">
     <a href="index.html"><h1>🎲 Dice Game 🎲</h1></a>
     <nav class="navbar">
-      <a href="#" class="active" id="newGame" data-bs-toggle="modal" data-bs-target="#game">Nouvelle Partie</a>
-      <a href="#" class="rules " data-bs-toggle="modal">Règles</a>
+      <div class="navbar-wrapper">
+        <a href="#" class="active navbar-item" id="newGame" data-bs-toggle="modal" data-bs-target="#game">Nouvelle Partie</a>
+        <a href="#" class="rules navbar-item" data-bs-toggle="modal" data-bs-target="#rules">Règles</a>
+      </div>
     </nav>
   </header>
 
@@ -36,7 +38,7 @@
       <div class="player playerUn" id="player-1">
 
         <div class="player-title">
-          <p class="player-title1">Joueur 1</p>
+          <p class="player-title1" value="Joueur 1"></p>
         </div>
         
         <div class="playerInner playerInner1 row row-cols-2 row-cols-lg-1 p-2">
@@ -56,7 +58,7 @@
       <div class="player playerDeux" id="player-2">
 
         <div class="player-title">
-          <p class="player-title2">Joueur 2</p>
+          <p class="player-title2"></p>
         </div>
 
         <div class="playerInner playerInner1 row row-cols-2 row-cols-lg-1 p-2">
@@ -101,36 +103,60 @@
   </div>
 
 <!-- Modal New Game -->
-<div class="modal fade" id="game" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade modal-newgame" id="game" tabindex="-1" aria-labelledby="newGame" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h3 class="modal-title" id="modal-title">NOUVELLE PARTIE</h3>
+        <h3 class="modal-title" id="modal-title">Nouvelle Partie</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <!-- Input Player1 -->
         <div class="inputPlayers">
           <div class="inputPlayer">
-            <label class="playerTitleUnLabel" for="playerTitleUnInput">JOUEUR 1</label>
-            <input type="text" id="playerTitleUnInput" name="playerTitleUnInput">
+            <label class="playerTitleUnLabel" for="playerTitleUnInput">Joueur 1</label>
+            <input type="text" id="playerTitleUnInput" name="playerTitleUnInput" value="Joueur 1" onFocus="javascript:this.value=''">
           </div>
         <!-- Input Player2 -->
         <div class="inputPlayer">
-            <label class="playerTitleUnLabel" for="playerTitleDeuxInput">JOUEUR 2</label>
-            <input type="text" id="playerTitleDeuxInput" name="playerTitleDeuxInput">
+            <label class="playerTitleUnLabel" for="playerTitleDeuxInput">Joueur 2</label>
+            <input type="text" id="playerTitleDeuxInput" name="playerTitleDeuxInput" value="Joueur 2" onFocus="javascript:this.value=''">
         </div>
         <div class="scoreToGet">
           <label class="scoreToGetLabel" for="scoreToGetLabel">Score à atteindre (10-100) :</label>
-          <input type="number" id="scoreToGetInput" name="scoreToGetInput" min="10" max="100" value="100">
+          <input type="number" id="scoreToGetInput" name="scoreToGetInput" min="10" max="100" value="50">
         </div>
         
         </div>
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success startGameButton" data-bs-dismiss="modal">Valider</button>
+        <button type="button" class="btn btn-success startGameButton" data-bs-dismiss="modal">JOUER</button>
 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Rules -->
+<div class="modal fade modal-rules" id="rules" tabindex="-1" aria-labelledby="rules" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content videoWrapper">
+      <video autoplay playsinline loop muted  src="videos/pexels-rūdolfs-klintsons-7102266 (1).mov"></video>
+      <div class="modal-header">
+        <h3 class="modal-title modal-title-rules" id="rules-title">Règles</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-body-rules">
+        <h5><strong>But du jeu :</strong></h5>
+        <h6><strong>Le premier joueur qui atteint les 100 points a gagné !</strong></h6>
+        <div class="rules-content">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit voluptatem sunt et optio ab harum dolore veniam provident nisi a.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, dolorem sunt. Sint!</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary close-rules" data-bs-dismiss="modal">OK</button>
       </div>
     </div>
   </div>
