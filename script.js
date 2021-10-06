@@ -1,4 +1,3 @@
-// __________DOM DECLARATIONS________ //
 //DICE
 const wrapper = document.querySelector('.wrapper');
 const dice = document.querySelector('.dice');
@@ -12,6 +11,9 @@ const animationDiceRight = document.querySelector('.animationDiceRight');
 const animationShadowRight = document.querySelector('.animationShadowRight');
 const staticRotate = document.querySelector('.staticRotate');
 const staticShadow = document.querySelector('.staticShadow');
+// MODALS
+const playerTitleUnInput = document.getElementById('playerTitleUnInput');
+const playerTitleDeuxInput = document.getElementById('playerTitleDeuxInput');
 // PLAYER Select
 const playerUn = document.querySelector('.playerUn');
 const playerDeux = document.querySelector('.playerDeux');
@@ -28,35 +30,24 @@ let holdScoreDeux = document.getElementById('holdScore-2');
 // Player Title
 const playerTitleUn = document.querySelector('.player-title1');
 const playerTitleDeux = document.querySelector('.player-title2');
-
-
-// Ne fonctionne que sur le premier HOLD SCORE BUTTON !
-
 // CURRENT PLAYER
 let currentPlayer;
 // POPUP
 const popUp = document.querySelector('.popUp');
 const popUpText = document.querySelector('.popUpText');
-// NEW GAME
-const newGame = document.getElementById('newGame');
-
-// __________CSS EFFECTS________ //
-// Hover DICE
-wrapper.addEventListener("mouseover", function() {
-  shadow.style.background = "rgba(54, 54, 54, .6)";
-  shadow.style.transition = ".5s all ease";
-});
-wrapper.addEventListener("mouseleave", function() {
-  shadow.style.background = "";
-});
+// START GAME
+const startGameButton = document.querySelector('.startGameButton');
+// SCORE TO GET
+let scoreToGetInput = document.getElementById('scoreToGetInput');
+let scoreToGet;
 
 // Dice staticRotate (default behaviour)
 const diceStaticRotate = () => {
   dice.classList.add("staticRotate");
 }
 diceStaticRotate();
+dice.style.cursor="initial";
 
-// __________FUNCTIONS________ //
 // ***  STARTGAME() FUNCTION  *** \\
 const startGame = () => {
   // Reset Scores
@@ -64,33 +55,58 @@ const startGame = () => {
   totalScoreUnResult = 0;
   totalScoreDeuxResult = 0;
   totalScoreUn.textContent = 0;
-  // roundScoreUn.textContent = 0;
   totalScoreDeux.textContent = 0;
   roundScoreDeux.textContent = 0;
-  // Réactive les holdScore
   holdScoreUn.disabled = false;
   holdScoreDeux.disabled = false;
-  playerTitleUn.textContent = "Player 1";
-  playerTitleDeux.textContent = "Player 2"
+  playerTitleUn.textContent = "Joueur 1";
+  playerTitleDeux.textContent = "Joueur 2";
   // Player 1 selected
   playerUnSelected();
   // Static Rotate Dice
   diceStaticRotate();
+  dice.style.cursor="pointer";
+
   // PopUp ON
   popUp.classList.add('popUpActive');
   popUpText.innerHTML="Click on the dice";
+
+  // Hover DICE
+  wrapper.addEventListener("mouseover", function() {
+  shadow.style.background = "rgba(54, 54, 54, .6)";
+  shadow.style.transition = ".5s all ease";
+  });
+  wrapper.addEventListener("mouseleave", function() {
+  shadow.style.background = "";
+  });
 
   // THROW DICE
   dice.addEventListener("click", rollDice);
 }
 
-newGame.addEventListener("click", startGame);
+startGameButton.addEventListener("click", function() {
+  startGame();
+  // Personnalised Names
+
+  // Manque un script qui laisse JOUEUR 1 et JOUEUR 2 si les champs input ne sont pas renseignés
+
+  playerTitleUn.innerHTML = playerTitleUnInput.value.charAt(0).toUpperCase() + playerTitleUnInput.value.slice(1);
+  playerTitleDeux.innerHTML = playerTitleDeuxInput.value.charAt(0).toUpperCase() + playerTitleDeuxInput.value.slice(1);
+  // ScoreToGet
+  scoreToGet = scoreToGetInput.value;
+});
+
 
 // ***  ROLLDICE() FUNCTION *** \\
 const rollDice = () => {
   if (currentPlayer === undefined) {
     playerUnSelected();
   }
+
+  // Centering the game
+  // if (window.matchMedia("max-width: 800px"))
+  // window.scroll(130,130)
+
   // PopUp OFF
   popUp.classList.remove('popUpActive');
   // Create randomNumber between 1 & 6
@@ -198,7 +214,7 @@ holdScoreDeux.addEventListener("click", () => {
 
 // PLAYER UN SELECTED
 const playerUnSelected = () => {
-  if (totalScoreDeuxResult >= 5) {
+  if (totalScoreDeuxResult >= scoreToGet) {
     // WIN FONCTION
     win();
   } else {
@@ -206,7 +222,7 @@ const playerUnSelected = () => {
   //  Reset Scores
   roundScore = 0;
   popUp.classList.add('popUpActive')
-  popUpText.innerHTML="Au tour de Player 1"
+  popUpText.innerHTML="Au tour de Joueur 1"
   playerUn.classList.add('playerUnSelect');
   playerDeux.classList.remove('playerDeuxSelect');
   currentPlayer = 1;
@@ -215,7 +231,7 @@ const playerUnSelected = () => {
 
 // PLAYER DEUX SELECTED
 const playerDeuxSelected = () => {
-  if (totalScoreUnResult >= 5) {
+  if (totalScoreUnResult >= scoreToGet) {
     // WIN FONCTION
     win();
   } else {
@@ -223,7 +239,7 @@ const playerDeuxSelected = () => {
     //  Reset Scores
     roundScore = 0;
     popUp.classList.add('popUpActive')
-    popUpText.innerHTML="Au tour de Player 2"
+    popUpText.innerHTML="Au tour de Joueur 2"
     playerDeux.classList.add('playerDeuxSelect');
     playerUn.classList.remove('playerUnSelect');
     currentPlayer = 2;
@@ -232,12 +248,28 @@ const playerDeuxSelected = () => {
 
 // WIN FONCTION
 const win = () => {
+  let hasWon = " a gagné !"
   if (currentPlayer === 1) {
-    (playerTitleUn.textContent = playerTitleUn.textContent + " a gagné !");
+    playerTitleUn.textContent = `${playerTitleUn.textContent} ${hasWon}`;
   } else {
-    (playerTitleDeux.textContent = playerTitleDeux.textContent + " a gagné !")
+    playerTitleDeux.textContent = `${playerTitleDeux.textContent} ${hasWon}`;
   }
   holdScoreUn.disabled = true;
   holdScoreDeux.disabled = true;
   dice.removeEventListener("click", rollDice, false);
 }
+
+// TO DO :
+
+// 1- RULES
+// 2- Personnalisation of names
+// 3- Personnalisation of totalScoreToGet
+
+// totalScoreToGet : Créer une variable vierge scoreToGet, qui va prendre la valeur de l'input, puis dans la fonction playerUnSelected et playerDeuxSelected, intégrer la règle :
+
+/*
+SI (totalScoreDeuxResult >= scoreToGet) {
+  win();
+}
+
+*/

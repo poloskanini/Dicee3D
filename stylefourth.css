@@ -11,7 +11,8 @@ body,
 html {
   font-family: 'Indie Flower';
   font-size: 1.1rem;
-  height: 100%;
+  min-height: 100%;
+  position: relative;
 }
 
 /**** ____HEADER____ ****/
@@ -21,27 +22,30 @@ header {
 
 header a {
   text-decoration: none;
+  margin: 0 0 1rem;
 }
 
 h1 {
   margin: 1rem 0 0;
   text-shadow: 2px 0 #232931;
-  font-size: clamp(32px, 12vw, 7rem);
+  font-size: clamp(32px, 13vw, 8rem);
   color: #f57b72;
   text-align: center;
+  text-decoration: none;
+  z-index: 100;
 }
 
 /* Navbar */
 .navbar {
-  width: 50%;
   margin: auto;
-  font-size: clamp(1.1rem, 1.3vw, 2.2rem);
+  font-size: clamp(1.1rem, 1.4vw, 2.2rem);
   justify-content: space-evenly;
 }
 
 .navbar a {
   text-decoration: none;
   color: #000;
+  font-size: 1.1rem;
 }
 
 .navbar a:after {
@@ -51,25 +55,29 @@ h1 {
   height: 2px;
   width: 0;
   background: transparent;
-  transition: width .5s ease;
+  transition: all .5s ease;
 }
 
 .navbar a:hover:after {
   width: 90%;
-  background: #444;
+  background: #f57b72;
+  transition: all .5s ease;
+}
+
+.navbar a:hover {
+  color: #f57b72;
+  transition: all .5s ease;
 }
 
 /**** ____CONTAINER____ ****/
 .container {
   font-family: 'Indie Flower';
-  /* background: lightblue; */
 }
 
 /* Players */
 .players {
   position: relative;
   width: 100%;
-  height: auto;
   margin: 2rem 0;
   display: flex;
   flex-direction: column;
@@ -81,6 +89,7 @@ h1 {
   top: 100px;
   padding: 0 1.5rem;
   min-height: 30vh;
+  border: .6px solid rgba(0, 0, 0, .2);
 }
 
 .player-title {
@@ -95,13 +104,11 @@ h1 {
 .playerUn {
   margin-bottom: 9rem;
   box-shadow: 1px 0 10px lightgrey;
-
 }
 
 .playerDeux {
   margin: 0;
   box-shadow: 1px 1px 10px lightgrey;
-
 }
 
 .playerUnSelect {
@@ -158,7 +165,7 @@ h1 {
 
 .totalScoreText {
   color: #E78177;
-  font-size: clamp(2rem, 2vw, 3rem);
+  font-size: clamp(2rem, 3vw, 3rem);
   font-family: 'Lobster Two';
   font-weight: bold;
   text-shadow: 1px 0 #232931;
@@ -198,13 +205,73 @@ h1 {
   }
 }
 
+.arrow {
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: 100vh;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -60%);
+ opacity: .3;
+ animation: pulsingText 2.5s alternate infinite ease-in-out;
+}
+
+.down {
+  position: absolute;
+  width: 1.5rem;
+  height: .5rem;
+  opacity: 0;
+  animation: move-chevron 3s ease-out infinite;
+}
+
+.down:first-child {
+  animation: move-chevron 3s ease-out 1s infinite;
+}
+
+.down:nth-child(2) {
+  animation: move-chevron 3s ease-out 2s infinite ;
+}
+
+.down:before,
+.down:after {
+ content: '';
+ position: absolute;
+ top: 0;
+ height: 100%;
+ width: 50%;
+ border-left: 16px solid black;
+ border-bottom: 16px solid black;
+ background: #000;
+}
+
+
+@keyframes move-chevron {
+ 25% {
+  opacity: .7;
+	}
+ 33.3% {
+  opacity: .7;
+  transform: translateY(50px);
+ }
+ 66.6% {
+  opacity: .7;
+  transform: translateY(75px);
+ }
+ 100% {
+  opacity: .7;
+  transform: translateY(100px);
+ }
+}
+
 /* Wrapper (Dice + Shadow) */
 .wrapper {
   width: 100px;
   height: 100px;
   perspective: 4000px;
   margin: auto;
-  cursor: pointer;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -396,6 +463,69 @@ h1 {
   }
 }
 
+/* MODALS */
+.modal-title {
+  font-weight: bold;
+}
+
+.inputPlayers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.inputPlayer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.scoreToGet {
+  display: inline-block;
+  text-align: center;
+  padding: 0 20px;
+  margin: 1rem 0;
+}
+
+.btn-success {
+  background: #4ECCA3;
+}
+
+.playerTitleUnLabel,
+.playerTitleDeuxLabel,
+.scoreToGetLabel {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4ECCA3;
+}
+
+#playerTitleUnInput,
+#playerTitleDeuxInput,
+#scoreToGetInput {
+  border: 1px solid #4ECCA3;
+  font-size: 2rem;
+  color: #4ECCA3;
+  text-transform: capitalize;
+}
+
+#scoreToGetInput {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4ECCA3;
+  text-align: center;
+}
+
+.modal-title {
+  text-align: center;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
 /* FOOTER */
 footer {
   color: #4ECCA3;
@@ -426,11 +556,15 @@ footer p {
     position: relative;
   }
 
-  .player {
+  /* .player {
     height: 70vh;
-  }
+  } */
 
   .playerUn {
     margin-bottom: 0;
+  }
+
+  .navbar a {
+    font-size: 1.4rem;
   }
 }
