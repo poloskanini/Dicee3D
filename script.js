@@ -298,7 +298,6 @@ const resetWin = () => {
 /* TO DO LIST :
 
 - META (robots, etc...)
-- W3C validator
 - Favicon
 
 */
