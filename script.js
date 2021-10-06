@@ -295,4 +295,10 @@ const resetWin = () => {
   playerDeux.classList.remove('playerDeuxWinner');
 }
 
-// TO DO : ARROW
+/* TO DO LIST :
+
+- META (robots, etc...)
+- W3C validator
+- Favicon
+
+*/
