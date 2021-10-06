@@ -69,6 +69,13 @@ h1 {
   transition: all .5s ease;
 }
 
+a:active, a:focus,
+input:active, input:focus {
+  outline: 0;
+  border: none;
+  outline-style: none;
+}
+
 /**** ____CONTAINER____ ****/
 .container {
   font-family: 'Indie Flower';
@@ -225,6 +232,8 @@ h1 {
   height: .5rem;
   opacity: 0;
   animation: move-chevron 3s ease-out infinite;
+  border-left: 16px solid black;
+  border-bottom: 16px solid black;
 }
 
 .down:first-child {
@@ -242,9 +251,6 @@ h1 {
  top: 0;
  height: 100%;
  width: 50%;
- border-left: 16px solid black;
- border-bottom: 16px solid black;
- background: #000;
 }
 
 
@@ -464,8 +470,22 @@ h1 {
 }
 
 /* MODALS */
+
+.modal-header {
+  position: relative;
+}
+
 .modal-title {
   font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.btn-close {
+  z-index: 10;
 }
 
 .inputPlayers {
@@ -497,7 +517,7 @@ h1 {
 .playerTitleUnLabel,
 .playerTitleDeuxLabel,
 .scoreToGetLabel {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #4ECCA3;
 }

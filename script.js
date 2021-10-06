@@ -89,7 +89,6 @@ startGameButton.addEventListener("click", function() {
   // Personnalised Names
 
   // Manque un script qui laisse JOUEUR 1 et JOUEUR 2 si les champs input ne sont pas renseignés
-
   playerTitleUn.innerHTML = playerTitleUnInput.value.charAt(0).toUpperCase() + playerTitleUnInput.value.slice(1);
   playerTitleDeux.innerHTML = playerTitleDeuxInput.value.charAt(0).toUpperCase() + playerTitleDeuxInput.value.slice(1);
   // ScoreToGet
@@ -104,8 +103,9 @@ const rollDice = () => {
   }
 
   // Centering the game
-  // if (window.matchMedia("max-width: 800px"))
-  // window.scroll(130,130)
+  if (window.matchMedia("max-width: 800px")) {
+    window.scroll(130,130)
+  }
 
   // PopUp OFF
   popUp.classList.remove('popUpActive');
