@@ -536,6 +536,7 @@ input:active, input:focus {
 
 /* FOOTER */
 footer {
+  font-family: 'Lobster', cursive;
   color: #FFF;
   position: relative;
   bottom: 0;
