@@ -475,6 +475,7 @@ input:active, input:focus {
   font-size: 1rem;
   text-align: center;
   padding: 3px;
+  width: 200px;
 }
 
 #scoreToGetInput {
