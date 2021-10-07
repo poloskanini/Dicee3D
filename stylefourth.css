@@ -481,7 +481,7 @@ input:active, input:focus {
   font-size: .7rem;
   font-weight: bold;
   text-align: center;
-  width: 50px;
+  width: 100px;
 }
 
 .modal-footer {
