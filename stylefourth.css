@@ -211,8 +211,7 @@ input:active, input:focus {
 /* PopUp */
 .popUp {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 300px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -239,7 +238,7 @@ input:active, input:focus {
 
 @keyframes pulsingText {
   to {
-    opacity: .7;
+    opacity: .5;
   }
 }
 
@@ -480,7 +479,7 @@ input:active, input:focus {
 }
 
 #scoreToGetInput {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   text-align: center;
 }
@@ -560,6 +559,11 @@ footer p {
     display: flex;
     flex-direction: row;
     position: relative;
+    margin: 3rem 0;
+  }
+
+  .player {
+    min-height: 50vh;
   }
 
   .playerUn {

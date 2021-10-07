@@ -82,7 +82,6 @@ const startGame = () => {
   dice.style.cursor="pointer";
 
   // PopUp ON
-  popUp.classList.add('popUpActive');
   popUpText.innerHTML="Cliquez sur le dé pour lancer";
 
   // Hover DICE
@@ -127,6 +126,8 @@ const rollDice = () => {
   }
   // PopUp OFF
   popUp.classList.remove('popUpActive');
+  popUpText.innerHTML="Cliquez sur le dé pour lancer";
+
   // Create randomNumber between 1 & 6
   let randomNumber = Math.floor(Math.random() * 6) + 1;
 
