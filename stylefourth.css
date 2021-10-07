@@ -32,7 +32,7 @@ header a {
 }
 
 h1 {
-  margin: 1rem 0 0;
+  margin: 1.5rem 0 0;
   text-shadow: 2px 0 #232931;
   font-size: clamp(32px, 14vw, 8rem);
   color: #f57b72;
@@ -472,8 +472,7 @@ input:active, input:focus {
 #playerTitleDeuxInput,
 #scoreToGetInput {
   border: 1px solid #4ECCA3;
-  font-size: 1.2rem;
-  text-transform: capitalize;
+  font-size: 1rem;
   text-align: center;
   padding: 3px;
 }
