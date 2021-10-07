@@ -9,13 +9,13 @@
 
 body,
 html {
-  font-family: 'Indie Flower';
   font-size: 1.1rem;
   min-height: 100%;
   position: relative;
 }
 
 body {
+  font-family: 'Overlock', cursive;
   background-image: url(images/91454531_m.jpg);
   background-size: cover;
   background-position: top;
@@ -93,8 +93,7 @@ input:active, input:focus {
 
 /**** ____CONTAINER____ ****/
 .container {
-  font-family: 'Indie Flower';
-}
+  font-family: 'Overlock', cursive;}
 
 /* Players */
 .players {
@@ -119,7 +118,7 @@ input:active, input:focus {
   font-size: clamp(2.3rem, 5vw, 4rem);
   font-weight: bold;
   color: #4ECCA3;
-  font-family: 'Indie Flower', sans-serif;
+  font-family: 'Overlock', cursive;
   text-shadow: 1px 0 #232931;
   text-align: center;
 }
@@ -182,7 +181,7 @@ input:active, input:focus {
 .holdScore {
   background: #F9D2CF;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-weight: bold;
+  font-weight: 400;
   padding: 5px 15px;
   border-radius: 5px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .7);
@@ -203,8 +202,8 @@ input:active, input:focus {
 .totalScoreText {
   color: #E78177;
   font-size: clamp(2rem, 3vw, 3rem);
-  font-family: 'Lobster Two';
-  font-weight: bold;
+  font-family: 'Overlock', cursive;
+  font-weight: 900;
   text-shadow: 1px 0 #232931;
   margin-bottom: 1rem;
 }
@@ -221,6 +220,7 @@ input:active, input:focus {
   left: 50%;
   transform: translate(-50%, -50%);
   visibility: hidden;
+  font-family: 'Indie Flower';
 }
 
 .popUpText {
@@ -508,30 +508,26 @@ input:active, input:focus {
   z-index: 10;
 }
 
-.modal-body-rules h4, h5 {
-  font-family: 'Lobster', sans-serif;
-}
-
 .rules-content {
-  font-family: 'Indie Flower', sans-serif;
+  font-family: 'Overlock', cursive;
   margin-top: 2rem;
-  line-height: 1.9;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .holdScoreRules {
-    background: #F9D2CF;
-    font-weight: bold;
-    padding: 5px 15px;
-    border-radius: 5px;
-    box-shadow: 1px 2px 5px rgba(0, 0, 0, .7);
-    transition: all .1s ease-in-out;
-    z-index: 0;
-    text-align: center;
+  background: #F9D2CF;
+  font-weight: 400;
+  padding: 5px 15px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, .7);
+  transition: all .1s ease-in-out;
+  z-index: 0;
+  text-align: center;
 }
 
 .close-rules {
   z-index: 10;
-  text-align: left;
 }
 
 .goodluck {

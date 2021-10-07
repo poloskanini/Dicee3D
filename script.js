@@ -1,6 +1,7 @@
-$(document).ready(function () {
-  $('#rules').modal('show')
+/*$(document).ready(function () {
+  $('#rules').modal('rules')
 });
+*/
 
 //DICE
 const wrapper = document.querySelector('.wrapper');
