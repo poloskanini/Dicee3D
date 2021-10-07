@@ -1,3 +1,7 @@
+$(document).ready(function () {
+  $('#rules').modal('show')
+});
+
 //DICE
 const wrapper = document.querySelector('.wrapper');
 const dice = document.querySelector('.dice');
@@ -72,7 +76,7 @@ const startGame = () => {
 
   // PopUp ON
   popUp.classList.add('popUpActive');
-  popUpText.innerHTML="Click on the dice";
+  popUpText.innerHTML="Cliquez sur le dé pour lancer";
 
   // Hover DICE
   wrapper.addEventListener("mouseover", function() {
