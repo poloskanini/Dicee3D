@@ -19,6 +19,12 @@ const staticShadow = document.querySelector('.staticShadow');
 // MODALS
 const playerTitleUnInput = document.getElementById('playerTitleUnInput');
 const playerTitleDeuxInput = document.getElementById('playerTitleDeuxInput');
+// Modal Player 1 focus
+var myModal = document.getElementById('game')
+var myInput = document.getElementById('playerTitleUnInput')
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
 // PLAYER Select
 const playerUn = document.querySelector('.playerUn');
 const playerDeux = document.querySelector('.playerDeux');
