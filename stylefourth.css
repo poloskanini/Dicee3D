@@ -44,7 +44,6 @@ h1 {
 /* Navbar */
 .navbar {
   margin: auto;
-  font-size: clamp(1.1rem, 1.4vw, 2.2rem);
   justify-content: space-evenly;
 }
 
@@ -57,7 +56,7 @@ h1 {
 .navbar-item {
   text-decoration: none;
   color: #FFF;
-  font-size: 1.1rem;
+  font-size: clamp(1.1rem, 1.6vw, 2.2rem);
   text-shadow: 1px 0 #232931;
   margin: 0 1.1rem;
 }
@@ -178,7 +177,7 @@ input:active, input:focus {
 
 /* HoldScore */
 .holdScore {
-  background: #F9D2CF;
+  background: #c2c0c0;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 400;
   padding: 5px 15px;
@@ -191,7 +190,7 @@ input:active, input:focus {
 }
 
 .holdScore:hover {
-  background: #f7bbb7;
+  background: #9e9d9d;
 }
 
 .holdScore:active {
@@ -571,7 +570,6 @@ footer p {
   }
 
   .navbar-item {
-    font-size: 1.6rem;
     margin: 0 4rem;
   }
 }
