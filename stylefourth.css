@@ -163,7 +163,7 @@ input:active, input:focus {
 .roundScore,
 .totalScore {
   font-size: clamp(3rem, 5vw, 8rem);
-  font-family: 'Lobster Two';
+  font-family: 'Overlock', cursive;
   font-weight: bold;
   text-shadow: 1px 0 #232931;
   margin: 2rem 0;
