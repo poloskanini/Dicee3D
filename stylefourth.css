@@ -98,8 +98,6 @@ input:active, input:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #FFF;
-  background: rgba(255, 255, 255, .8);
 }
 
 .player {
@@ -107,7 +105,7 @@ input:active, input:focus {
   top: 100px;
   padding: 0 1.5rem;
   min-height: 30vh;
-  border: .6px solid rgba(0, 0, 0, .2);
+  background: rgba(255, 255, 255, .8);
 }
 
 .player-title {
@@ -241,7 +239,7 @@ input:active, input:focus {
   margin: auto 0;
   font-size: 1.3rem;
   font-weight: bold;
-  color: rgb(198, 10, 10);
+  color: rgb(255, 255, 255);
   opacity: 0;
   animation: pulsingText 3s alternate infinite ease-in-out;
 }
@@ -252,7 +250,7 @@ input:active, input:focus {
 
 @keyframes pulsingText {
   to {
-    opacity: .5;
+    opacity: .8;
   }
 }
 
@@ -585,5 +583,9 @@ footer p {
 
   .popUp {
     top: 40%;
+  }
+
+  .popUpText {
+    color: rgb(0, 0, 0);
   }
 }
