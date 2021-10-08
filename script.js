@@ -25,6 +25,7 @@ myModal.addEventListener('shown.bs.modal', function () {
 const playerUn = document.querySelector('.playerUn');
 const playerDeux = document.querySelector('.playerDeux');
 // PLAYER Scores
+let totalScoreText = document.querySelector('.totalScore');
 let roundScoreUn = document.getElementById('roundScore-1');
 let roundScoreDeux = document.getElementById('roundScore-2');
 let totalScoreUn = document.getElementById('totalScore-1');
@@ -33,16 +34,16 @@ let totalScoreUnText = document.querySelector('.totalScoreUnText');
 let totalScoreDeuxText = document.querySelector('.totalScoreDeuxText');
 let totalScoreUnResult;
 let totalScoreDeuxResult;
-// ROUNDSCORE & TOTALSCORE
+// ROUNDSCORE
 let roundScore = 0;
+// CURRENT PLAYER
+let currentPlayer;
 // HOLDSCORE Button
 let holdScoreUn = document.getElementById('holdScore-1');
 let holdScoreDeux = document.getElementById('holdScore-2');
 // Player Title
 const playerTitleUn = document.querySelector('.player-title1');
 const playerTitleDeux = document.querySelector('.player-title2');
-// CURRENT PLAYER
-let currentPlayer;
 // POPUP
 const popUp = document.querySelector('.popUp');
 const popUpText = document.querySelector('.popUpText');
@@ -66,6 +67,8 @@ const startGame = () => {
   totalScoreUnResult = 0;
   totalScoreDeuxResult = 0;
   totalScoreUn.textContent = 0;
+  totalScoreUnText.textContent += `/${scoreToGetInput.value}`;
+  totalScoreDeuxText.textContent +=  ` /${scoreToGetInput.value}`;
   totalScoreDeux.textContent = 0;
   roundScoreUn.textContent = 0;
   roundScoreDeux.textContent = 0;
@@ -78,6 +81,11 @@ const startGame = () => {
   // Static Rotate Dice
   diceStaticRotate();
   dice.style.cursor="pointer";
+  // Score displays init
+  roundScoreUn.classList.add('visible');
+  roundScoreDeux.classList.add('visible');
+  totalScoreUn.classList.add('visible');
+  totalScoreDeux.classList.add('visible');
   // PopUp ON
   popUpText.innerHTML="Cliquez sur le dé pour lancer";
   // Hover DICE

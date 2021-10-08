@@ -155,16 +155,31 @@ input:active, input:focus {
 
 /**** PLAYERS INNER ****/
 /* RoundWrap */
-.roundScore,
-.totalScore {
+.roundWrap {
   font-size: clamp(3rem, 5vw, 8rem);
   font-family: 'Overlock', cursive;
   font-weight: bold;
   text-shadow: 1px 0 #232931;
 }
 
+.totalWrap {
+  font-size: clamp(3rem, 5vw, 8rem);
+
+} 
+
 .roundScore {
   color: #4ECCA3;
+}
+
+#roundScore-1,
+#roundScore-2,
+#totalScore-1,
+#totalScore-2 {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .totalScore {
@@ -195,7 +210,7 @@ input:active, input:focus {
 
 .totalScoreText {
   color: #E78177;
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(1.4rem, 3vw, 3rem);
   font-family: 'Overlock', cursive;
   font-weight: 900;
   text-shadow: 1px 0 #232931;
@@ -530,7 +545,6 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 2rem 0 10px;
 }
 
 footer p {
