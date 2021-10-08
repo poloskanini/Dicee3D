@@ -60,6 +60,9 @@ const diceStaticRotate = () => {
 diceStaticRotate();
 dice.style.cursor="initial";
 
+totalScoreUnText.textContent = "TOTAL";
+totalScoreDeuxText.textContent   = "TOTAL";
+
 // ***  STARTGAME() FUNCTION  *** \\
 const startGame = () => {
   // Reset Scores
@@ -67,8 +70,6 @@ const startGame = () => {
   totalScoreUnResult = 0;
   totalScoreDeuxResult = 0;
   totalScoreUn.textContent = 0;
-  totalScoreUnText.textContent += `/${scoreToGetInput.value}`;
-  totalScoreDeuxText.textContent +=  ` /${scoreToGetInput.value}`;
   totalScoreDeux.textContent = 0;
   roundScoreUn.textContent = 0;
   roundScoreDeux.textContent = 0;
@@ -117,6 +118,8 @@ startGameButton.addEventListener("click", function() {
   }
   // ScoreToGet
   scoreToGet = scoreToGetInput.value;
+  totalScoreUnText.textContent += `/${scoreToGetInput.value}`;
+  totalScoreDeuxText.textContent +=  ` /${scoreToGetInput.value}`;
 });
 
 // ***  ROLLDICE() FUNCTION *** \\
@@ -305,4 +308,8 @@ const resetWin = () => {
   totalScoreDeux.style.display="block";
   totalScoreDeuxText.style.display="block";
   playerDeux.classList.remove('playerDeuxWinner');
+  totalScoreUnText.textContent = "";
+  totalScoreDeuxText.textContent = "";
+  totalScoreUnText.textContent = "TOTAL";
+  totalScoreDeuxText.textContent = "TOTAL";
 }
