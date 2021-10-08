@@ -87,13 +87,9 @@ input:active, input:focus {
   outline: 0;
   border: none;
   outline-style: none;
-  /* background: rgba(67, 250, 31, 0.6); */
 }
 
 /**** ____CONTAINER____ ****/
-.container {
-  font-family: 'Overlock', cursive;}
-
 /* Players */
 .players {
   position: relative;
@@ -103,7 +99,6 @@ input:active, input:focus {
   flex-direction: column;
   justify-content: space-between;
   background: #FFF;
-  background: rgba(255, 255, 255, 1);
 }
 
 .player {
@@ -370,7 +365,6 @@ input:active, input:focus {
 }
 
 /* ___________  STATIC ROTATION  ____________ */
-
 .shadow {
 	width: 130px;
 	height: 130px;
@@ -514,7 +508,7 @@ input:active, input:focus {
 }
 
 .holdScoreRules {
-  background: #F9D2CF;
+  background: #4ECCA3;
   font-weight: 400;
   padding: 5px 15px;
   border-radius: 5px;

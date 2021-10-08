@@ -1,8 +1,3 @@
-/*$(document).ready(function () {
-  $('#rules').modal('rules')
-});
-*/
-
 //DICE
 const wrapper = document.querySelector('.wrapper');
 const dice = document.querySelector('.dice');
@@ -22,6 +17,7 @@ const playerTitleDeuxInput = document.getElementById('playerTitleDeuxInput');
 // Modal Player 1 focus
 var myModal = document.getElementById('game')
 var myInput = document.getElementById('playerTitleUnInput')
+// Focus on playerInput in modal
 myModal.addEventListener('shown.bs.modal', function () {
   myInput.focus()
 })
@@ -35,6 +31,8 @@ let totalScoreUn = document.getElementById('totalScore-1');
 let totalScoreDeux = document.getElementById('totalScore-2');
 let totalScoreUnText = document.querySelector('.totalScoreUnText');
 let totalScoreDeuxText = document.querySelector('.totalScoreDeuxText');
+let totalScoreUnResult;
+let totalScoreDeuxResult;
 // ROUNDSCORE & TOTALSCORE
 let roundScore = 0;
 // HOLDSCORE Button
@@ -80,10 +78,8 @@ const startGame = () => {
   // Static Rotate Dice
   diceStaticRotate();
   dice.style.cursor="pointer";
-
   // PopUp ON
   popUpText.innerHTML="Cliquez sur le dé pour lancer";
-
   // Hover DICE
   wrapper.addEventListener("mouseover", function() {
   shadow.style.background = "rgba(54, 54, 54, .6)";
@@ -120,11 +116,7 @@ const rollDice = () => {
   if (currentPlayer === undefined) {
     playerUnSelected();
   }
-  // Centering the game
-  // if (window.matchMedia("max-width: 800px")) {
-  //   window.scroll(130,130)
-  // }
-  // PopUp OFF
+  // PopUp Dice
   popUp.classList.remove('popUpActive');
   popUpText.innerHTML="Cliquez sur le dé pour lancer";
 
@@ -210,7 +202,7 @@ const rollDice = () => {
       }
     }, 1000)
   }
- }
+}
 
 // ***  HOLD EVENT *** \\
 holdScoreUn.addEventListener("click", () => {
@@ -267,7 +259,7 @@ const playerDeuxSelected = () => {
 
 // *** WIN FUNCTION *** \\
 const win = () => {
-  let hasWon = " a gagné !"
+  const hasWon = " a gagné !"
   if (currentPlayer === 1) {
     //Add Gif
     playerUn.classList.add('playerUnWinner');
@@ -306,10 +298,3 @@ const resetWin = () => {
   totalScoreDeuxText.style.display="block";
   playerDeux.classList.remove('playerDeuxWinner');
 }
-
-/* TO DO LIST :
-
-- META (robots, etc...)
-- Favicon
-
-*/
