@@ -99,6 +99,7 @@ input:active, input:focus {
   flex-direction: column;
   justify-content: space-between;
   background: #FFF;
+  background: rgba(255, 255, 255, .8);
 }
 
 .player {
@@ -158,13 +159,12 @@ input:active, input:focus {
 .roundWrap {
   font-size: clamp(3rem, 5vw, 8rem);
   font-family: 'Overlock', cursive;
-  font-weight: bold;
   text-shadow: 1px 0 #232931;
 }
 
 .totalWrap {
   font-size: clamp(3rem, 5vw, 8rem);
-
+  font-weight: bold;
 } 
 
 .roundScore {
@@ -408,9 +408,10 @@ input:active, input:focus {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
   100% {
-    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    transform: rotateX(360deg) rotateY(0deg) rotateZ(360deg);
   }
 }
+/* Static Rotate modification (rotateY(360deg) */
 
 /**** MODALS ****/
 /* MODAL NEW GAME */
