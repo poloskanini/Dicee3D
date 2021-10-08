@@ -103,6 +103,7 @@ input:active, input:focus {
   flex-direction: column;
   justify-content: space-between;
   background: #FFF;
+  background: rgba(255, 255, 255, 1);
 }
 
 .player {
@@ -177,7 +178,7 @@ input:active, input:focus {
 
 /* HoldScore */
 .holdScore {
-  background: #c2c0c0;
+  background: #4ECCA3;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 400;
   padding: 5px 15px;
@@ -190,7 +191,7 @@ input:active, input:focus {
 }
 
 .holdScore:hover {
-  background: #9e9d9d;
+  background: #39b38a;
 }
 
 .holdScore:active {

@@ -121,9 +121,9 @@ const rollDice = () => {
     playerUnSelected();
   }
   // Centering the game
-  if (window.matchMedia("max-width: 800px")) {
-    window.scroll(130,130)
-  }
+  // if (window.matchMedia("max-width: 800px")) {
+  //   window.scroll(130,130)
+  // }
   // PopUp OFF
   popUp.classList.remove('popUpActive');
   popUpText.innerHTML="Cliquez sur le dé pour lancer";
