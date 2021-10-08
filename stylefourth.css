@@ -135,12 +135,17 @@ input:active, input:focus {
 
 .playerUnSelect {
   background: #cdf8ee;
-  transition: .2s all ease-in-out;
+  transition: .1s all ease-in-out;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, .7);
 }
 
 .playerDeuxSelect {
-  background: #ffd8d8;
-  transition: .2s all ease-in-out;
+  background: #cdf8ee;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, .7);
+}
+
+.unselect {
+  opacity: .4;
 }
 
 .playerUnWinner {
@@ -236,7 +241,7 @@ input:active, input:focus {
   margin: auto 0;
   font-size: 1.3rem;
   font-weight: bold;
-  color: #000;
+  color: rgb(198, 10, 10);
   opacity: 0;
   animation: pulsingText 3s alternate infinite ease-in-out;
 }
@@ -576,5 +581,9 @@ footer p {
 
   .navbar-item {
     margin: 0 4rem;
+  }
+
+  .popUp {
+    top: 40%;
   }
 }

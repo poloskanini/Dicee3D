@@ -88,7 +88,7 @@ const startGame = () => {
   totalScoreUn.classList.add('visible');
   totalScoreDeux.classList.add('visible');
   // PopUp ON
-  popUpText.innerHTML="Cliquez sur le dé pour lancer";
+  popUpText.innerHTML="Cliquez pour lancer";
   // Hover DICE
   wrapper.addEventListener("mouseover", function() {
   shadow.style.background = "rgba(54, 54, 54, .6)";
@@ -246,7 +246,9 @@ const playerUnSelected = () => {
   popUp.classList.add('popUpActive')
   popUpText.innerHTML="Au tour de Joueur 1"
   playerUn.classList.add('playerUnSelect');
-  playerDeux.classList.remove('playerDeuxSelect');
+  // playerDeux.classList.remove('playerDeuxSelect');
+  playerUn.classList.remove('unselect');
+  playerDeux.classList.add('unselect');
   currentPlayer = 1;
   }
 }
@@ -263,7 +265,9 @@ const playerDeuxSelected = () => {
     popUp.classList.add('popUpActive')
     popUpText.innerHTML="Au tour de Joueur 2"
     playerDeux.classList.add('playerDeuxSelect');
-    playerUn.classList.remove('playerUnSelect');
+    // playerUn.classList.remove('playerUnSelect');
+    playerDeux.classList.remove('unselect');
+    playerUn.classList.add('unselect');
     currentPlayer = 2;
   }
 }
