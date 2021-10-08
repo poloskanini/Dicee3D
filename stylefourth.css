@@ -24,6 +24,7 @@ body {
 /**** ____HEADER____ ****/
 header {
   font-family: 'Lobster';
+  margin: 1.5rem 0 0;
 }
 
 header a {
@@ -32,7 +33,6 @@ header a {
 }
 
 h1 {
-  margin: 1.5rem 0 0;
   text-shadow: 2px 0 #232931;
   font-size: clamp(32px, 14vw, 8rem);
   color: #f57b72;
