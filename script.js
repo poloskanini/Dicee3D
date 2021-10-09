@@ -14,13 +14,6 @@ const staticShadow = document.querySelector('.staticShadow');
 // MODALS
 const playerTitleUnInput = document.getElementById('playerTitleUnInput');
 const playerTitleDeuxInput = document.getElementById('playerTitleDeuxInput');
-// Modal Player 1 focus
-var myModal = document.getElementById('game')
-var myInput = document.getElementById('playerTitleUnInput')
-// Focus on playerInput in modal
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})
 // PLAYER Select
 const playerUn = document.querySelector('.playerUn');
 const playerDeux = document.querySelector('.playerDeux');
@@ -41,6 +34,7 @@ let currentPlayer;
 // HOLDSCORE Button
 let holdScoreUn = document.getElementById('holdScore-1');
 let holdScoreDeux = document.getElementById('holdScore-2');
+
 // Player Title
 const playerTitleUn = document.querySelector('.player-title1');
 const playerTitleDeux = document.querySelector('.player-title2');
@@ -61,7 +55,7 @@ diceStaticRotate();
 dice.style.cursor="initial";
 
 totalScoreUnText.textContent = "TOTAL";
-totalScoreDeuxText.textContent   = "TOTAL";
+totalScoreDeuxText.textContent = "TOTAL";
 
 // ***  STARTGAME() FUNCTION  *** \\
 const startGame = () => {
@@ -102,6 +96,7 @@ const startGame = () => {
   dice.addEventListener("click", rollDice);
 }
 
+// ***  STARTGAME EVENT *** \\
 startGameButton.addEventListener("click", function() {
   // Reset Win Effects
   resetWin();
@@ -118,7 +113,7 @@ startGameButton.addEventListener("click", function() {
   }
   // ScoreToGet
   scoreToGet = scoreToGetInput.value;
-  totalScoreUnText.textContent += `/${scoreToGetInput.value}`;
+  totalScoreUnText.textContent += ` /${scoreToGetInput.value}`;
   totalScoreDeuxText.textContent +=  ` /${scoreToGetInput.value}`;
 });
 
@@ -244,7 +239,7 @@ const playerUnSelected = () => {
   //  Reset Scores
   roundScore = 0;
   popUp.classList.add('popUpActive')
-  popUpText.innerHTML="Au tour de Joueur 1"
+  popUpText.innerHTML = `Au tour de ${playerTitleUn.innerHTML}`;
   playerUn.classList.add('playerUnSelect');
   // playerDeux.classList.remove('playerDeuxSelect');
   playerUn.classList.remove('unselect');
@@ -263,7 +258,7 @@ const playerDeuxSelected = () => {
     //  Reset Scores
     roundScore = 0;
     popUp.classList.add('popUpActive')
-    popUpText.innerHTML="Au tour de Joueur 2"
+    popUpText.innerHTML = `Au tour de ${playerTitleDeux.innerHTML}`;
     playerDeux.classList.add('playerDeuxSelect');
     // playerUn.classList.remove('playerUnSelect');
     playerDeux.classList.remove('unselect');

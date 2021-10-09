@@ -25,11 +25,18 @@ body {
 header {
   font-family: 'Lobster';
   margin: 1.5rem 0 0;
+  text-decoration: none;
 }
 
 header a {
   text-decoration: none;
   margin: 0 0 1rem;
+  color: #f57b72;
+}
+
+header a:hover {
+  color: #f57b72;
+
 }
 
 h1 {
@@ -115,6 +122,7 @@ input:active, input:focus {
   font-family: 'Overlock', cursive;
   text-shadow: 1px 0 #232931;
   text-align: center;
+  pointer-events: none;
 }
 
 .player-title p {
@@ -143,7 +151,7 @@ input:active, input:focus {
 }
 
 .unselect {
-  opacity: .4;
+  opacity: .6;
 }
 
 .playerUnWinner {
@@ -179,6 +187,7 @@ input:active, input:focus {
 #totalScore-1,
 #totalScore-2 {
   visibility: hidden;
+  pointer-events: none;
 }
 
 .visible {
@@ -218,6 +227,7 @@ input:active, input:focus {
   font-weight: 900;
   text-shadow: 1px 0 #232931;
   margin-bottom: 1rem;
+  pointer-events: none;
 }
 
 /* PopUp */
@@ -241,7 +251,7 @@ input:active, input:focus {
   font-weight: bold;
   color: rgb(255, 255, 255);
   opacity: 0;
-  animation: pulsingText 3s alternate infinite ease-in-out;
+  animation: pulsingText 5s alternate infinite ease-in-out;
 }
 
 .popUpActive {
@@ -434,10 +444,15 @@ input:active, input:focus {
   text-align: center;
   color: #f57b72;
   z-index: 10;
+  pointer-events: none;
 }
 
 .modal-body {
   text-align: center;
+}
+
+#rules .modal-body {
+  pointer-events: none;
 }
 
 .btn-close {
@@ -549,6 +564,7 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
+  pointer-events: none;
 }
 
 footer p {
@@ -562,6 +578,8 @@ footer p {
     text-shadow: 5px 0 #232931;
   }
 
+ 
+
   .players {
     display: flex;
     flex-direction: row;
@@ -569,9 +587,9 @@ footer p {
     margin: 3rem 0;
   }
 
-  .player {
+  /* .player {
     min-height: 50vh;
-  }
+  } */
 
   .playerUn {
     margin-bottom: 0;
