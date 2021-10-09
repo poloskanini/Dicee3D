@@ -10,7 +10,7 @@
 body,
 html {
   font-size: 1.1rem;
-  min-height: 100%;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -19,6 +19,11 @@ body {
   background-image: url(images/91454531_m.jpg);
   background-size: cover;
   background-position: top;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /**** ____HEADER____ ****/
@@ -573,7 +578,7 @@ footer p {
 
 /*________ MEDIAS QUERIES______ */
 /**********   DESKTOP  **********/
-@media screen and (min-width : 800px) {
+@media screen and (min-width : 1000px) {
   h1 {
     text-shadow: 5px 0 #232931;
   }

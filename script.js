@@ -96,7 +96,7 @@ const startGame = () => {
   dice.addEventListener("click", rollDice);
 }
 
-// ***  STARTGAME EVENT *** \\
+// ***  NEWGAME EVENT *** \\
 startGameButton.addEventListener("click", function() {
   // Reset Win Effects
   resetWin();
