@@ -16,7 +16,7 @@ html {
 
 body {
   font-family: 'Overlock', cursive;
-  background-image: url(/images/backgroundDice.jpg);
+  background-image: url(../images/backgroundDice.jpg);
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -160,12 +160,12 @@ input:active, input:focus {
 }
 
 .playerUnWinner {
-  background-image: url(/images/loveAct.gif);
+  background-image: url(../images/loveAct.gif);
   background-size: cover;
 }
 
 .playerDeuxWinner {
-  background-image: url(/images/carlton2.gif);
+  background-image: url(../images/carlton2.gif);
   background-size: cover;
   background-position: top;
 }
@@ -301,42 +301,42 @@ input:active, input:focus {
 }
 
 .top {
-  background-image: url(/images/die-3.jpeg);
+  background-image: url(../images/die-3.jpeg);
   background-size: cover;
   background-position: center;
   transform: rotateX(90deg) rotateZ(20deg) translateZ(50px);
 }
 
 .bottom {
-  background-image: url(/images/die-4.jpeg);
+  background-image: url(../images/die-4.jpeg);
   background-size: cover;
   background-position: center center;
   transform: rotateX(-90deg) rotateZ(-20deg) translateZ(50px);
 }
 
 .right {
-  background-image: url(/images/die-1.png);
+  background-image: url(../images/die-1.png);
   background-size: cover;
   background-position: center center;
   transform: rotateY(160deg) translateZ(50px);
 }
 
 .left {
-  background-image: url(/images/die-2.jpeg);
+  background-image: url(../images/die-2.jpeg);
   background-size: cover;
   background-position: center center;
   transform: rotateY(-110deg) translateZ(50px);
 }
 
 .front {
-  background-image: url(/images/die-6.jpeg);
+  background-image: url(../images/die-6.jpeg);
   background-size: cover;
   background-position: center center;
   transform: rotateY(-20deg) translateZ(50px);
 }
 
 .back {
-  background-image: url(/images/die-5.jpeg);
+  background-image: url(../images/die-5.jpeg);
   background-size: cover;
   background-position: center center;
   transform: rotateX(180deg) rotateY(110deg) translateZ(50px);
