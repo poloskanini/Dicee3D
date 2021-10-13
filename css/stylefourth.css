@@ -145,7 +145,7 @@ input:active, input:focus {
 }
 
 .playerUnSelect {
-  background: #cdf8ee;
+  background: #b7faea;
   transition: .1s all ease-in-out;
   box-shadow: 3px 6px 10px rgba(0, 0, 0, .7);
 }
@@ -156,7 +156,7 @@ input:active, input:focus {
 }
 
 .unselect {
-  opacity: .6;
+  opacity: .3;
 }
 
 .playerUnWinner {
