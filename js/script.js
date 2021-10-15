@@ -34,7 +34,6 @@ let currentPlayer;
 // HOLDSCORE Button
 let holdScoreUn = document.getElementById('holdScore-1');
 let holdScoreDeux = document.getElementById('holdScore-2');
-
 // Player Title
 const playerTitleUn = document.querySelector('.player-title1');
 const playerTitleDeux = document.querySelector('.player-title2');
